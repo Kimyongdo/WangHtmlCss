@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+<script>
+    // body문서가 모두 load된 후 실행되는 콜백함수 
+    function loaded(){
+        //도화지 객체(canvas요소) 찾아오기
+        var canvas = document.getElementById('canvas1');
+
+        //위의 canvas에 그림을 그려주는 화가 객체 얻어오기
+        var context = canvas.getContext('2d');//3d도 존재함
+
+        //화가객체에게 원하는 그림(글씨,이미지,등)을 그려달라고 요청
+        
+        //1. 화가에게 글씨부터 그려내기
+        //글씨 스타일부터 지정
+        context.fillStyle="red";
+        context.font="20px cursive";
+        context.fillText("Hello",10,40); //도화지의 좌상단 기준
+        context.fillText("Hello",0,20); //글씨의 좌하단을 기준으로 하기에 위에서 글자 font만큼 띄워져야한다.
+        context.fillText("Hello",0,400); 
+
+        //글씨 윤곽선 그리기
+        context.strokeStyle="blue";
+        context.strokeText("Hello",100,40);
+        
+        //사각형 그리기
+        context.fillStyle="green";
+        context.fillRect(10,50,100,40);//좌측/상단/넓이/높이
+
+        //사각형 윤곽선
+        context.strokeStyle="green";
+        context.strokeRect(120,50,100,40);
+        
+        //직선 그리기
+        context.beginPath(); //선의 경로작업 시작!!
+        context.moveTo(10,100); //선의 시작지점 
+        context.lineTo(100,150);
+        context.lineTo(150,120);
+        context.stroke(); //이떄 그림이 그려진다
+
+        //그 밖의 도형들.. page423 432참조
+
+        //이미지 그리기
+        var img = new Image(); //그림 이미지를 관리하는 객체 
+        img.src="./html5_logo.png";
+        //이미지는 로딩하는데 시간이 걸리므로..
+        //위에서 src로 이미지를 지정하자마자 drawImage를 하면 안보일 가능성 농후 
+        //이미지 로딩이 완료되는 것을 듣는 이벤트를 처리함.
+        img.onload=function(){ //onload 완료시점에 알려주기
+            //이 함수는 이미지 로딩이 완료되면 자동실행됨!.
+            context.drawImage(img,10,180); //이미지의 좌상단자표  
+            //이미지의 사이즈를 조정하면서 그려내기
+            context.drawImage(img,10,150,100,100); //이미지/좌측/상단/너비/높이
+            
+        }
+        
+        
+
+
+
+
+
+        
+
+
+
+
+    }
+</script>    
+</head>
+
+
+<body onload="loaded()">
+<!-- 프로그래머가 원하는 대로 화면을 그려내는 도화지 요소 -->
+<canvas id="canvas1" width="300" height="400" style="border: 1px solid black"></canvas>
+
+    
+</body>
+</html>

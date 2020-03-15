@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf=8">
+        <title>title</title>
+   
+        <style>
+            /* anchor스타일 */
+            a#anchor:link{color:blue;}
+            a#anchor:visited{color:green;}
+            /* hover-마우스 올리면 두배 커짐  */
+            a#anchor:hover{color:red; font-size: 2em;}
+            /* active 클릭했을때 색깔 변환 */
+            a#anchor:active{color:yellow;}
+
+            /* 문서에 마우스 올렸을때 배경전체 배경 */
+            :hover{background: yellow;}
+            /* <a>요소가 아닌것에도 적용가능 */
+            p:hover{background-color: green;}
+            img{background-color: yellow; border: 2px solid red;}
+            img:hover{background-color: red; width: 100%;}
+
+            /* 리스트 스타일 */
+            ul.a{list-style-type: circle;}
+            ul.b{list-style-type: disc;}
+            ul.c{list-style-type: square; list-style-position: inside;}
+            /* 리스트 이미지는 번거로워서 사용 안함 */
+            ul.d{list-style-type: url('./border.png');}
+
+        </style>
+    </head>
+
+        <body>
+       <a href="" id="anchor">aaaaaa</a>
+       <p>Hello</p>
+       <img src="./image.png" alt="image">
+
+       <!-- 리스트 스타일 -->
+       <hr>
+       <ul class="a">
+           <li>HTML5</li>
+           <li>CSS3</li>
+           <li>JavaScript</li>
+       </ul>
+
+       <ul class="b">
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>JavaScript</li>
+        </ul>
+
+        <ul class="c">
+                <li>HTML5</li>
+                <li>CSS3</li>
+                <li>JavaScript</li>
+            </ul>
+    
+
+            <ul class="d">
+                    <li>HTML5</li>
+                    <li>CSS3</li>
+                    <li>JavaScript</li>
+                </ul>
+        
+
+
+        </body>
+</html>

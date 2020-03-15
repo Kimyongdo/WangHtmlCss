@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>title</title>
+    </head>
+
+    <body>
+        <!-- input에 새로 추가된 type들 -->
+        <!-- 브라우져마다 지원여부가 다름, 즉 안되는 브라우져도 있음 -->
+        <!-- p.93 예제 참고 -->
+        <form>
+
+            <!-- 날짜선택 -->
+            <input type="date">
+            <input type="datetime-local">
+
+            <!-- 색상선택 -->
+            <input type="color">
+
+            <!-- 모바일에서만 가능한 키패드 모양관련 -->
+            <input type="email">
+            <input type="tel">
+            
+            <!-- 텍스트 입력시에 x버튼 생기는 것 -->
+            <input type="search">
+
+            <!-- 슬라이드 위젯 -->
+            <input type="range" min="1" max="10" value="2" step="2">
+            <input type="number" min="-2" max="10" step="3" value="-2">
+        </form>
+
+
+        <hr>
+
+        <!-- 추가된 input의 속성들 -->
+        <form>
+
+            <!-- 힌트 -->
+            <input type="hint" placeholder="힌트 넣는 곳 "><br>
+
+            <!-- 반드시 입력해야하는 값을 검증하는 속성 여기 지나치면 서밋 불가능 -->
+            <input type="text" required><br>
+
+            <!-- 수정이 불가능하도록 바꿀수는 없음, -->
+            <input type="text" readonly value="sam"><br>
+
+            <!-- 최대글자수 제한 -->
+            <input type="text" maxlength="5"><br>
+
+            <!-- 이 웹페이지가 로딩될때 가장 먼저 포커스를 받고 싶다면 -->
+            <input type="text" autofocus><br>
+
+            <!-- 자동완성기능 -->
+            <input type="text" autocomplete list ="datas"><br>
+
+            <!-- 자동완성으로 보여질 항목리스트 -->
+            <datalist id="datas">
+                <option value="canada" label="캐나다"></option> 
+                <option value="china" label="중국"></option> 
+                <option value="korea" label="한국"></option> 
+            </datalist>
+
+            <!-- 서밋버튼 -->
+            <input type="submit">
+        </form>
+
+
+        <!-- hidden 타입 - 사용자 입력없이 서버에 데이터를 보낼 것이 있다면-->
+        <form action="aaa.php" method="GET">
+            <input type="text" name="name">
+            <input type="hidden" name="aaa" value="1234">
+            <input type="submit">
+        </form>
+        <!-- http://127.0.0.1:5500/Day02/aaa.php?name=adadad&aaa=1234  aaa=1234는 hidden -->
+ 
+ 
+        <!-- 정규표현식 : pattern -->
+  <form>
+        <!-- 전화번호 검증 -->
+        <input type="text" pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{4,5}" title="형식이 맞지 않을 때 보이는 글씨">
+        <input type="submit">
+    </form>
+
+
+    </body>
+</html>

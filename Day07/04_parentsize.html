@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<style>
+*{border: 1px dotted red;}
+p{padding: 30px; margin: 0px;}
+a{margin: 10px; padding: 20px;}
+
+</style>
+<body>
+    <!-- 부모 요소의 height은 언제나 자식요소의 높이를 감싸는 크기지만
+    아닌 경우가 있음. 
+    -->
+    <div style="border: 1px dotted blue">
+        <!-- block요소의 패딩을 적용하면 부모사이즈에 영향이 있음 -->
+        <p>Hello</p>
+    </div>
+
+    <!-- 인라인요소를 자식으로 가질 때 -->
+    <br>
+    <br>
+    <br>
+
+    <div style="border: 1px dotted blue;">
+        <!-- 인라인 요소의 마진, 패딩중에서 height은 부모의 영향을 주지 않음. -->
+        <a href="">nice</a>
+        <em>good</em>
+        <strong>html</strong>
+
+        <!-- 인라인중에서 부모의 영향을 주는 요소 -->
+        <!-- 인라인 요소중에서 사이즈변경이 가능한 요소들
+        즉, inline-block요소 <- img와 block요소 
+        -->
+        <img src="./imgs_company/logo.png" alt="" style="padding: 10px;">
+        <input type="text" style="margin: 30px;">
+    </div>
+</body>
+</html>

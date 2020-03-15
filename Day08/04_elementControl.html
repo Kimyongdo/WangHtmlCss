@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+<script>
+    //onclick에 의해 지정한 함수
+function cal(){
+    //사용자입력을 받는 input요소 참조하기.
+    //document가 body를 제어
+    //id와 var이 같아야하나?
+    var in1 = document.getElementById('in1');
+    var in2 = document.getElementById('in2');
+    
+    //input 요소에 써져있는 글씨(숫자)얻어오기
+    var a = in1.value;
+    var b = in2.value;
+
+    //입력받은 두 수를 덧셈하기
+    var c = a+b;
+    var c = parseInt(a)+parseInt(b);
+
+    //덧셈결과를 id가 result인 녀석에게 보여주기
+    var result = document.getElementById('result');
+    //c의 값을 result.value에 넣기.
+    result.value = c;
+}
+
+function changeColor(){
+    var e = document.getElementById('aa');
+    //자동완성이 안됨. 
+    e.style.color="red";
+    e.style.backgroundColor="yellow";
+    e.style.border="2px solid blue";
+
+    //요소 찾아올때 사용하는 메소드 중 다른방법
+    var es = document.getElementsByTagName('h2'); //elements이므로 배열로 옴
+    //리턴된 요소는 여러개일 수 있으므로 elements는 배열변수
+    es[0].style.color="orange";
+    es[0].style.backgroundColor="black";
+
+}
+
+function changeImage(){
+    //요소의 name속성값을 이용해서 찾아오기
+    var a = document.getElementsByName('abc');
+    //a는 여러요소 일수도 있어서 배열변수임
+
+    a[0].src = "./back.jpg"
+    
+}
+</script>
+</head>
+
+
+<body>
+    <input type="text" id="in1"><br>
+    <input type="text" id="in2"><br>
+    <!-- cal()함수 만들기.  -->
+    <input type="button" value="계산" onclick="cal()"><br>
+    <input type="text" id="result" size="30"><br>
+    
+    <!-- HTML요소의 특징 스타일 변경 -->
+    <h2 id="aa" style="background-color: white;">this is heading</h2>
+    <button onclick="changeColor()">change background of h2 element</button>
+
+    <hr>
+    <!-- 이미비 변경가능 -->
+    <!-- html에서의 src(속성)은 자바에서의 멤버변수(프로퍼티) -->
+    <img src="./border.png" alt="border" width="200px" name="abc">
+    <!-- input, button 모두 가능 -->
+    <button onclick="changeImage()">change image</button>
+    <hr>
+    <!-- 제어문은 특이한 점이 없음,  -->
+    <!-- 특이한 점이 있다면 html요소들과 body안에서 혼재적으로 사용 -->
+
+   <table border="1" style="text-align: center;">
+    <tr><td>aaa</td></tr>
+    <script>
+        //자바스크립트 분리는 +으로 시작.
+        for(var i=0; i<10; i++){
+            document.write('<tr><td>'+i+'</td></tr>')    
+        }
+    </script>
+    
+</table>
+
+<hr>
+<!-- 자바의 foreach문과 좀 비슷한것 -->
+<!-- 코틀린의 in과 같은 -->
+<button onclick="display()">객체의 멤버값 출력</button>
+
+<script>
+    function display(){
+        //자바스크립트의 객체생성은 {}다
+        //js에서의 객체,멤버변수의 객체가 3개
+        var student={name:"sam", age:20, major:"android"}
+        // alert(student.name+", "+student.age+", "+student.major);
+        // alert(student['name']+", "+student['age']+", "+student['major']);
+
+        //객체의 멤버값 출력할때
+        var str="";
+        for(var key in student){ //임시변수 t는 값이 아니라 키(멤버변수명)입니다.
+            str += student[key]+"\n"; //경고창에서 줄 바꿀때는 \n이 맞음 
+        }
+        alert(str);
+    }
+</script>
+
+
+</body>
+</html>

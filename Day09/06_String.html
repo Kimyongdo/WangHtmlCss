@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <script>
+        //1.String(string의 wrapper)
+        //문자형과 String은 다른것.
+        //자바스크립트에서 문자는 그냥 문자 객체가 아님. 
+        var a = "Hello";
+        var b = new String("hello");
+        document.write(typeof(a)+"<br>");//string
+        document.write(typeof(b)+"<br>");//object
+        document.write((a===b)+"<br>");//false - 자료형이 다른 개념 
+
+        //String 메소드
+        var s="Hello world"//자동 wrapping
+        document.write(s.length+"<br>");//11
+        document.write(s.toUpperCase()+"<br>");//HELLO WORLD
+        document.write(s.toLocaleLowerCase()+"<br>");//hello world
+        document.write(s.concat('Nice')+"<br>");//Hello worldNice
+        document.write(s.indexOf('wor')+"<br>");//6
+        document.write(s.indexOf('wdasd')+"<br>");//-1 못 찾으면
+
+        //문자열 중에서 원하는 문자 탐색.. match
+        var str = "Hello World ! Nice to meet you 안녕하세요 반갑습니다. Nice work! nice study"
+        str.match(/Hello/); //match 사용시 표기법이 다르다.  정규표현식이라고 한다. 
+        var search = str.match(/Hello/); //찾은 문자열 리턴시킴
+        document.write("탐색결과 : "+search+"<br>");//탐색결과 : Hello  //찾은 결과값이 나온다.
+        var search = str.match(/hello/); 
+        document.write("탐색결과 : "+search+"<br>");//탐색결과 : null //못 찾으면 null
+        var search = str.match(/hello/i);  //i=ignore 대소문자구별
+        document.write("탐색결과 : "+search+"<br>");//탐색결과 : Hello
+
+        //여러글자일때 여러개를 리턴받고 싶다면 옵션추가[g:global]
+        var search = str.match(/Nice/g); 
+        document.write("탐색결과 : "+search+"<br>");//탐색결과 : Nice,Nice
+        //리턴결과는 배열
+        document.write("탐색결과 개수 : "+search.length+"<br>");//탐색결과 개수 : 2
+        document.write("탐색결과 : "+search[0]+"<br>");//탐색결과 : Nice
+        document.write("탐색결과 : "+search[1]+"<br>");//탐색결과 : Nice
+        
+        //여러개를 가져오면서 대소문자도 구분하고 싶지 않다면
+        var search = str.match(/Nice/ig); 
+        document.write("탐색결과 개수 : "+search.length+"<br>");//탐색결과 개수 : 3
+
+        //한글도 가능
+        var search = str.match(/안녕/ig); 
+        document.write("탐색결과 개수 : "+search.length+"<br>");//탐색결과 개수 : 1
+
+        //문자 대체하기.. replace
+        var s ="Hello world";
+        document.write(s.replace("world", "android")+"<br>"); //Hello android
+        document.write(s.replace("Wrold", "android")+"<br>"); //Hello world 대문자반응안함.
+        
+        //만약 대소문자 구별없이 대체하고 싶다면//옵션을 쓰려면 정규표현식 필요 ""->//
+        document.write(s.replace(/wOrld/i, "android")+"<br>");//Hello android
+        
+        //문자열 중에서 특정단어를 모두 변경하기
+        var str = "hello world, nice world, good World, bad World";
+        var result = str.replace(/world/ig,"android");
+        document.write(result+"<br>");//hello android, nice android, good android, bad android 
+
+        //이 기능을 이용해서 특수문자열중 비속어들을 xxx처리하는곳에 사용함
+        //문자열을 특수문자 기준으로 잘라서 배열로 리턴해주는 기능
+        var s="one,two,three,for,five";
+        var arr= s.split(',');
+        document.write(arr.length+"<br>");//5
+        document.write(arr[0]+"<br>");//one
+        document.write(arr[1]+"<br>");//two
+        document.write(arr[2]+"<br>");//three
+        document.write(arr[3]+"<br>");//for
+        document.write(arr[4]+"<br>");//five
+        document.write(arr+"<br>");//one,two,three,for,five//자동으로 toString()으로 요소값 출력
+
+        //문자열 Html요소로 자동 감싸주기(권장 안함 쓰지 마삼)
+        var s= "This is test";
+        document.write(s.bold()+"<br>");
+        document.write(s.italics()+"<br>");
+        document.write(s.fontcolor('green')+"<br>");
+        document.write(s.link("http://www.naver.com")+"<br>");
+    
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

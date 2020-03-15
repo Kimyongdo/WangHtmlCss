@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>z-index</title>
+        
+        <style>
+          #box1{
+              position: absolute;
+              left: 0px; top: 0px;
+              width: 100px; height: 100px; 
+          background-color: sandybrown;
+          z-index: 10;
+          /* z-index기본은 0 */
+          }
+
+          #box2{
+            position: absolute;
+              left: 30px; top: 30px;
+              width: 100px; height: 100px; 
+          background-color: seagreen;
+          z-index: 5;
+          }
+
+          #box3{
+            position: absolute;
+              left: 60px; top: 60px;
+              width: 100px; height: 100px; 
+          background-color: hotpink;}
+
+        </style>
+    </head>
+
+    <body>
+       <div id="box1">box #1</div>
+       <div id="box2">box #2</div>
+       <div id="box3">box #3</div>
+    </body>
+</html>

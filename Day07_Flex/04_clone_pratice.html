@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Clone WebSite</title>
+
+    <style>
+        *{margin: 0px; padding: 0px;}
+        #error{
+            background-color: indianred;
+            color: white;
+            font-size: 15px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            text-align: center;
+            font-style:italic;
+            padding: 20px;
+        }
+        
+        header{
+            background-color: sandybrown;
+          
+                padding: 10px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+        }
+
+        nav ul{
+            
+            list-style: none;
+            display: flex;
+            background-color: silver;
+        text-align: center;
+        letter-spacing: 5px;
+        padding: 6px 0px;
+        
+        }
+        
+        nav ul li a{
+           
+            text-decoration: none;
+            list-style: none;
+            padding: 10px;
+        }
+        
+        nav ul li a:hover{
+            text-decoration: underline;
+            color: red;
+        }
+
+        #container{
+            display: flex;
+        }
+        aside{
+           flex-grow: 3;
+           padding: 20px;
+           background-color: aqua; 
+        }
+
+        article{
+           flex-grow: 7;
+           padding: 20px;
+           background-color: beige;
+        }
+
+        /* 반응형웹 */
+        @media all and (max-width:600px) {
+                #container, nav ul{
+                    flex-direction: column;
+                }                
+            }
+    </style>
+</head>
+
+
+<body>
+    <h4 id="error">오류가 발생했습니다.</h4>
+    <header>
+        <h1>Web Site</h1>
+        <p>this is a web site practice</p>
+
+      
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#">link</a></li>
+            <li><a href="#">link</a></li>
+            <li><a href="#">link</a></li>
+            <li><a href="#">link</a></li>
+        </ul>
+    </nav>
+
+    <div id="container">
+
+            <aside>
+
+                    <h4>About me</h4>
+                    <p>Some pictures</p>
+                    <p>images</p>
+            
+            
+
+         
+                    <h4>About me</h4>
+                    <p>Some pictures</p>
+                    <p>images</p>
+            </aside>
+                    
+            <article>
+                    <h4>About me</h4>
+                    <p>Some pictures</p>
+                    <p>images</p>
+
+                    <h4>About me</h4>
+                    <p>Some pictures</p>
+                    <p>images</p>
+                    
+                </article>
+    </div>
+    
+   
+
+</body>
+</html>

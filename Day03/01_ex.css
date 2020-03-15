@@ -1,0 +1,55 @@
+   /* 언어적용이 css다.  */
+            /* 이 영역 안에서는 css언어의 문법을 따라야함 */
+            /* 이 영역 안에서는 html언어 문법사용 불가 */
+            /* 기본문법 : 선택자{속성:값;} */
+            /* 선택자 종류 총 6가지  */
+            /* 1.타입(요소종류) 선택자 */
+            h2{color:red}
+            p{color: blue; font-family:serif;}
+            /* 2. 전체 선택자 */
+            *{font-style: italic; color: black;}
+            /* 같은 스타일 적용시 개별선택자가 우선적용  */
+            /* 3. 아이디 선택자 id를 사용 */
+            #p1{color: green;}
+            /* id가 더 개별적 -> 우선순위가 더 높음. */
+            /* 4. 클래스 선택자  .을 사용 */
+            .aa{color:violet}
+            /* 4-1. 선택자 섞어쓰기 p중에서 클래스가 aa인 것*/
+            /* 띄어쓰기하면 다른 의미임.  */
+            p.aa{background: yellow;}
+            /* 5. 선택자 그룹 */
+            li, a{color: gray;}
+            /* 6. 자식, 자손, 선택자 */
+            /* >은 자식만, 자손은 안함 */
+            #ss>p{color: black;}
+             /*띄어쓰기는 다 포함. 자식과 자손은 우선순위x 마지막에 쓴게 적용   */
+            #ss p{color: lime;}
+
+            /* 아래 둘은 완전히 다름 */
+            p.aa{}  /* p요소 중에서 class가 aa인 요소를 선택*/
+            p aa{}  /* p요소의 자손들 중에서 class값이 aa인 요소 */
+
+            /* 복합적으로  아이디 kk중 ul들 중 클래스가 gg에 li자식인거*/
+            #kk ul.gg>li{background: aqua;}
+
+            /* 7. 속성 선택자 */
+            /* p요소중 클래스 속성이 지정된 요소  */
+            p[class]{font-size: 30px;}
+            div[id="ss"]{font-weight: bold;}
+            /* 8. 의사 선택자 */
+            /* link, visited는 브라우저마다 동작여부가 다름 */
+            a:link{color: blue}
+            alink{color:brown}
+
+            a:hover{color:green}
+            a:active{color:red}
+            /* hover는 반드시link와 visited다음에 작성해야만 함 */
+            /* active는 반드시 hover다음에 작성해야함  */
+            /* kk 중 ul중 li */
+            #kk ul li:first-child{color: red;}
+            #kk ul li:last-child{color:blue;}
+            #kk ul li:nth-child(2){color:crimson;}
+
+            /* 수식을 이용한 n번째 자식 스타일링 짝수, 홀수 */
+            table tr:nth-child(2n){background: aqua;} 
+            table tr:nth-child(2n+1){background: chocolate;}

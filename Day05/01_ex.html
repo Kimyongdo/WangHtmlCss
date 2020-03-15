@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Ex</title>
+
+<style>
+/* display속성 */
+/* 블럭요소를 인라인요소로 변경 --> with 조정이 불가능해짐. */
+#aa{display: inline; width: 300px;}
+/* 인라인처럼 옆으로 배치되지만 블럭처럼 너비를 주고 싶다면 */
+#aa{display: inline-block; width:150px}
+
+/* 인라인요소를 블럭요소로.. */
+img.bb{display: block;}
+/* display 속성 값으로 none [안드로이드의 gone역할] */
+#cc{display: none;}
+/* 공간은 차지하나 눈에는 보이지 않음. */
+#cc{visibility: hidden;}
+
+/* position 속성 */
+/* static은 디폴트값  staic시 left top 적용불가 */
+/* relative 원래 놓여질 위치에서 left top이 이동  */
+/* absolute 문서의 좌상단 (0,0)을 기준으로 left top 이 이동됨.  */
+
+/* .aaa을 쓰면 .aaa가 부모로 변경됨 -> aboulste->relative로 */
+
+.aaa{background-color: black; position: relative;}
+
+#p1{background-color: turquoise; width: 200px; height: 50px;}
+/* 요소의 위치지정속성 */
+#p2{background-color: yellow; width: 200px; height: 50px;
+        position:static; left: 50px; top: 30px;
+        position: relative;
+        position:absolute;
+        /* 부모의 포지션이 realtive면 부모의 좌상단을 기준으로 abolute가 적용*/
+        position: fixed;
+        /* 스크롤해도 계속 붙어서 나옴.  */
+        }
+#p3{background-color: sandybrown; width: 200px; height: 50px;}
+
+</style>
+</head>
+
+<body>
+   <!-- display연습 -->
+   <!-- p요소 자체는 블럭 - 한 줄 다 사용 -->
+   <!-- a, em 요소 인라인 요소 -->
+   <p id="aa">Hello World</p>
+   <a href="">Good Bye</a>
+   <em>Good Morning</em>
+    <img src="./sunshine.jpg" alt="선샤인" class="bb">
+
+<!--  -->
+<hr>
+<ul>
+    <li>aaa</li>
+    <li id="cc">bbb</li>
+    <li>ccc</li>
+</ul>
+
+<hr>
+<!-- 블럭요소와 인라인 요소를 함께 사용할 때 고려할 것들!! -->
+<!-- 블럭요소 안에 블럭요소를 넣었을 때 -->
+<div style="background: tomato; border: 1px solid black;"> 
+    Nice  <p>aaa</p> Wrold
+    
+</div>
+
+<hr>
+<!-- 인라인요소안에 블럭요소를 넣으면 권장하지 않음. 조심해야할 상황 -->
+<span style="background: turquoise; border: 1px solid black;">Nice <p>aaa</p>World</span>
+
+<!-- 블럭요소 안에 블럭요소 넣을 때 같은 요소를 넣는 것은 권장하지 않음 -->
+<p style="background: turquoise;">aaa<p>nice world</p>aaaa</p>
+
+
+<h1 style="background: turquoise;">aaa<h1>nice world</h1>aaaa</h1>
+
+<hr>
+<!-- position -->
+<div class="aaa">
+    <p id="p1">block #1</p>
+    <p id="p2">block #2</p>
+    <p id="p3">block #3</p>
+</div>
+</body>
+</html>

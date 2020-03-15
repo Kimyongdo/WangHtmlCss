@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>font style</title>
+        
+        <style type="text/css">
+        /* 폰트 글꼴 */
+        p{font-family: "Bauhaus 93", serif;}
+        p{font-family: "궁서체", sans-serif;}
+        p{font-family: fantasy;}
+        p{font-family: cursive;}
+        p{font-family: monospace;}
+
+        /* 웹폰트 : 별도의 ttf, otf 폰트파일로 폰트 지정 */
+        /* 브라우저의 영향이 없는 글꼴지정 방식 */
+        /* 웹 폰트 등록 */
+        @font-face{
+            font-family: "myfont";  /*폰트이름결정*/
+            src:url("./CookieRun Black.otf");
+        }
+
+        /* 위에서 만들어진 웹폰트를 p요소에 적용하기 */
+        p{font-family: "myfont",serif;}
+
+        /* 폰트크기 */
+        p{font-size: 30px;}
+        p{font-size: 1.0em;} /* 1.0em == 100% */
+
+        /* bold normal 두께차이 */
+        p{font-weight: 900;} 
+
+        /* italic */
+        p{font-style: oblique;}
+
+        /* 위 4개 폰트관련 속성을 한번에 설정하기 */
+        /* 작성순서 [weight/style] - size - family  */
+        p{font:italic bold 200% "휴먼옛체",serif;}
+
+
+        /* 텍스트관련 스타일 속성들 */
+        /* 1. 텍스트정렬  */
+        p{text-align: center;}
+
+        /* 2. 텍스트 변환 */
+        p{text-transform: uppercase;}
+
+        /* 3. 텍스트 꾸미기[줄긋기] */
+        p{text-decoration: line-through;}
+        p{text-decoration: underline;}
+        
+
+        /* 4. 텍스트 그림자 */
+        p{text-shadow: 5px 3px 5px red;}
+
+        /* 5. word wrap */
+        /* 5em은 보통 다섯글자 한글은 자동넘어가는데 영어는 그렇지 않아 break-word 필수 */
+        p.aaa{width: 5em; border:1px solid blue; word-wrap: break-word;}
+        
+        /* 6. 다중컬름  두칸이 됨 */
+        p.lorem{column-count: 2; column-gap: 80px; column-rule: 4px dashed green}
+
+        </style>
+    </head>
+
+    <body>
+        <p>Hello World</p>
+        <p>한글 적용여부</p>
+
+        <P class="aaa">한글은 문제없이 다음 줄로 자동 내려갑니다
+            dddddddddddddddddddd</P>
+
+            <!-- lorem만 엔터치면 나옴 샘플글자 -->
+            <p class="lorem">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio voluptatem sequi totam impedit laboriosam a fuga earum molestias cupiditate nemo est natus corrupti, consequuntur, rem ducimus dolorum maxime autem culpa!
+            </p>
+
+            <!-- 주의 text-align은 블럭요소만 적용가능함 -->
+            <!-- Inline은 wrap이므로 text align이 불가능함 inline은 사이즈조정이 불가능함  -->
+            <!-- line-height : 라인크기 -->
+            <!-- 0.5em == .5em으로 쓴다 -->
+            <div style="text-align: center; background-color: chocolate; line-height: 5em;">Hello</div>
+            <span style="text-align: center; background-color: cornflowerblue; letter-spacing: .5em; ">Nice</span>
+
+    </body>
+</html>

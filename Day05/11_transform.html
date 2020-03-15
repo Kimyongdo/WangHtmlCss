@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <style>
+        div{
+            width: 50px; height: 50px;
+            background: yellow;
+            border: 1px solid black;
+            text-align: center;
+        }
+
+        div#box2{
+            background: blue;
+            /* x축으로 100px 이동 y축으로 0px이동 */
+            transform: translate(100px, 0px);
+        }
+
+
+        div#box3{
+            background: red;
+            /* 크기 1.2배 커짐 */
+            transform: scale(1.2,1.2)
+        }
+
+        div#box4{
+            background: green;
+            transform: rotate(30deg)
+            /* 각도단위 : deg,(도) rad(라디안 2/3파이) */
+        }
+    </style>
+</head>
+<body>
+    <div id="box1">box1</div>
+    <div id="box2">box2</div>
+    <div id="box3">box3</div>
+    <div id="box4">box4</div>
+
+</body>
+</html>

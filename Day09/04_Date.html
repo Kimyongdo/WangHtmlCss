@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <script>
+        //유용한 내장생성함수(class)[Date, Number, String, Math, Array]
+        //1. Date
+        var a = new Date();//현재 날짜를 가지고 있는 객체
+        document.write(a+"<br>"); //Fri Dec 13 2019 10:09:45 GMT+0900 (한국 표준시)
+        document.write(typeof(a)+"<br>");//object 모든 객체의 타입은 object로 나옴 
+
+        //주요기능들
+        document.write(a.toDateString()+"<br>");//Fri Dec 13 2019 - 날짜만
+        document.write(a.toLocaleString()+"<br>");//2019. 12. 13. 오전 10:12:39
+        document.write(a.getYear()+"<br>"); //119  - 1900년부터 기준
+        document.write(a.getFullYear()+"<br>");//2019
+        document.write(a.getMonth()+"<br>");//11   <-- 1월이 0
+        document.write(a.getHours()+"<br>");//10 (현재 10시임)
+        document.write(a.getMinutes()+"<br>");//16
+        document.write(a.getSeconds()+"<br>");//31
+        document.write(a.getTime()+"<br>"); // 1970/01/01 09:00을 기준임 다른언어는 모두 00:00
+        
+
+        //set도 가능함.
+        var b = new Date();
+        document.write(b.toLocaleString()+"<br>");//2019. 12. 13. 오전 10:19:25
+        b.setFullYear(2018);
+        document.write(b.toLocaleString()+"<br>");//2018. 12. 13. 오전 10:19:25
+
+        //생성자의 파라미터로 특정 날짜 지정 가능
+        var c= new Date(2025,7,23); //2025년 8월 23일
+        document.write(c.toLocaleString()+"<br>");//2025. 8. 23. 오전 12:00:00
+
+        //똑같은 변수쓰면 덮어쓰기 됨.
+        var c= new Date("Wed Sep 13 2017 13:40:13 GMT+0900");
+        document.write(c.toLocaleString()+"<br>");//2017. 9. 13. 오후 1:40:13
+
+        var c= new Date("2017. 9.13");
+        document.write(c.toLocaleString()+"<br>");//2017. 9. 13. 오전 12:00:00
+
+        var c= new Date(4564738783);//밀리세컨드 시간
+        document.write(c.toLocaleString()+"<br>");//1970. 2. 23. 오전 4:58:58
+        
+        var a=new Date("2018. 12. 13");
+        var b = new Date();
+        var diff = b.getTime()-a.getTime();
+        diff=b-a;
+        day=diff/(1000*60*60*24);//한줄
+        document.write("두 날짜 차이1 : "+day+"<br>");//365.43950991898146
+
+        
+        document.write("두 날짜 차이 : "+diff+"<br>"); //35893594605
+        var sec = diff/1000; //밀리초 -> 초
+        var min = sec/60;
+        var hour = min/60;
+        var day = hour/24;
+
+        document.write("두 날짜 차이 : "+day+"<br>");//365.4370121412037
+        
+        //소수점제거
+        day = Math.floor(day);
+        document.write("두 날짜 차이 : "+day+"<br>");//365
+
+        //기준일 계산하는 웹페이지 만들어보기
+
+        function clickbtn(){
+            //입력된 날짜 가져오기
+            var e = document.getElementById('ss'); //ss 가져오기
+            //인풋요소 값 가져오기
+            var s = e.value;
+            document.write(s+"<br>");
+            var a = new Date(s); //입력된 날짜로 date()생성
+            var b = new Date();  // 현재날짜
+
+            //입력된 날짜와 현재날짜의 차이 계싼
+            var diff=a-b;
+            day = Math.floor(diff/(1000*60*60*24));//소수점제거
+            if(day>0){
+                document.write("오늘로부터  : "+day+"일 전<br>");
+            }
+            else if(day<0){
+                document.write("오늘로부터  : "+(-day)+"일 후<br>");
+            }else{
+                document.write("오늘<br>");
+            }
+        
+        }
+
+        //디지털 시계..일정시간(1초)마다 현재날짜 출력
+        function showClock(){
+            var s = new Date();
+            var e = document.getElementById('kk');
+            e.value = s.toLocaleString();
+
+            setTimeout('showClock()',1000);//1초후 showClock()함수 실행하시오
+        }
+    </script>
+</head>
+<body>
+    <hr>
+    <input type="date" id="ss">
+    <button onclick="clickbtn()">기준일 입력</button>
+
+    <hr>
+    <h4>Digital Clock</h4>
+    <button onclick="showClock()">show clock</button>
+    <input type="text" id="kk" size="30" readonly>
+
+
+</body>
+</html>

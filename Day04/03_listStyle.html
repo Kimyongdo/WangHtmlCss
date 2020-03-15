@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf=8">
+        <title>title</title>
+
+        <style>
+        ul{
+            list-style: none;
+            border-top: 1px solid red;
+            border-bottom: 1px solid red;
+            text-align: center;
+            padding: 10px 0px;
+        }
+
+        /* 블럭요소를 인라인요소로 변경 */
+        ul li{
+            display: inline;
+            padding: 0px 10px 0px 10px;
+            /* 글자 자간  */
+            letter-spacing: 8px;
+            /* 모두 대문자로 조정  */
+            text-transform: uppercase;
+        }
+        
+        /* 밑줄 삭제 */
+        ul li a{text-decoration: none; color: black;}
+        /* 클릭했을 경우 밑줄 생김 */
+        ul li a:hover{text-decoration: underline;}
+
+        #header{
+            /* padding 상하,좌우 */
+            background-color: #cccccc;
+            text-align: center;
+            padding: 3em 0em;
+            background-image: url('./back.jpg');
+            /* 크기가 커버될 정도로  */
+            background-size: cover;
+            height: 100px;
+        }
+        </style>
+ </head>
+
+ <body>
+    <div id="header">
+        <h1>HOME PAGE</h1>
+        <p>This is my home page</p>
+    </div>
+
+    <ul>
+        <li><a href="">Home</a></li>
+        <li><a href="">Blog</a></li>
+        <li><a href="">About</a></li>
+        <li><a href="">Contact</a></li>
+    </ul>
+    </body>
+
+    </html>

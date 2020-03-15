@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>04 Ex</title>
+    </head>
+
+    <body>
+        <!-- 현재와 같은 폴더 ./    ../은 상위폴더 -->
+        <audio src="./old_pop.mp3" autoplay controls>
+        브라우저에서 audio 요소를 지원하지 않으면 보이는 글씨 
+        </audio>
+         <!-- chrome은 18년 4월부터 autoplay 지원x, edge는 가능 -->
+         <!-- 브러우저에 따른 음원의 유형에 대응하기 위해 <source>요소 사용 -->
+        <!--  https://www.online-convert.com/ 사용 -->
+        <audio autoplay controls>
+            <source src="./old_pop.mp3" type="audio/mp3">
+            <source src="./old_pop.ogg" type="audio/ogg">
+            </audio>
+
+
+        <video controls>
+            <!-- ogv파일의 MIME의 타입은 ogg임  -->
+            <source src="./movie.ogv" type="video/ogg">
+        </video>
+
+        <video controls poster="./ic_launcher-web.png" width="640" height="480">
+            <source src="./trailer.mp4" type="video/mp4">
+            <source src="./trailer.ogv" type="video/webm">
+          <source src="./trailer.webm" type="video/ogg">
+        </video>
+
+    
+        <hr>
+        <hr>
+
+        <!-- iframe : inline frame 다른 문서 가져와 보여주기 html안에 html.-->
+        <!-- 상위폴더 이동  -->
+        <iframe src="../Day01/02_text.html" frameborder="0" width="300" height="300"></iframe>
+
+        <!-- 다른 웹서버의 사이트 문서도 표시 가능 -->
+        <iframe src="http://chocojoa123.dothome.co.kr/index.html" witdh="300" height="300"></iframe>
+        
+        <!-- 링크<a>요소에 의해 열리는 traget으로 iframe지정이 가능함 -->
+        <hr>
+        <!-- name=aaa target=aaa 연동  ex.html내용이 ifram src=""에 들어간다 -->
+        <iframe src="" name="aaa"></iframe>
+        <a href="../Day01/03_ex.html" target="aaa">03.ex_html문서열기</a>
+    
+        <hr>
+        <hr>
+
+        <!-- div 요소 divide 논리적 영역 구분 [block 요소] - 한블럭 다 사용 -->
+        <!-- 전체적으로 다 바꾸고 싶을 때 -->
+        <div style="background-color: sandybrown; border:2px solid red; padding-left: 10px;">
+            <h2>Title</h2>
+            <p>this is message</p>
+        </div>    
+            
+        <!-- div요소의 [block] 특징 알아보기 -->
+        
+        <!-- p에게 style을 주면 전체 파란색, 일부만 이를 방지 -> div 사용 -> -->
+        <p>
+            안녕하세요 나는 <div style="color: royalblue;">홍길동</div>입니다
+
+        </p>
+
+        <!-- <span>요소 : div요소가 같은 역할이지만 [inline요소] 특성을 가짐 -->
+        <p>
+         안녕하세요 나는 <span style="color: royalblue;">홍길동</span>입니다
+       </p>
+    
+       <!-- div의 영역 레이아웃 구조 연습 -->
+       <!-- <div>의 영역 구분은 나중에 웹페이지 헤더영역,본문영역,푸터영역을 구분하여 주요한 역할 수행 -->
+        <div id="header" style="background-color: sandybrown; height: 20;"> 1</div>
+        <div id="content" style="background-color: seagreen; height: 40;">1 </div>
+        <div id="footer" style="background-color: springgreen; height: 20;">1 </div>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </body>
+
+</html>

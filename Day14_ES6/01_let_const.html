@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+
+</head>
+<body>
+    
+
+    <script>
+        //1. 변수선언 키워드 추가 : let, const
+
+        //기존의 var 변수
+        var a= 10;
+        document.write(a+"<br>");//10
+
+        var a= 20;
+        document.write(a+"<br>");//20
+        //var ----> let
+        //새로운 let키워드 변수
+        // let b= 100;
+        // document.write(b+"<br>");
+
+        let b= 200;//같은 이름 변수 -> error
+        document.write(b+"<br>");//200
+
+        //const : 상수 만드는 키워드
+        const c= 100;
+        document.write(c+'<br>');//100
+
+        // c=200;//ERROR..논리적 에러, 이전까지 동작
+        // document.write(c+"<br>");
+
+        // const c = 200;//let과 마찬가지로 같은 이름의 변수 선언금지 : 문법적 에러 - 동작 안함 
+        // document.write(c+"<br>");
+
+        //let, const도 역시 동적타이핑 문법. 자료형 마음대로 사용가능
+        
+        let d= "aaa";
+        document.write(d+"<br>");//aaa
+        d=30;
+        document.write(d+"<br>"); //30
+        d=true;
+        document.write(d+"<br>"); //true
+        d=new Date();
+        document.write(d+"<br>"); //Fri Dec 20 2019 09:36:59 GMT+0900 (한국 표준시)
+
+        document.write('<hr>');
+
+        //인식범위
+        //var키워드는 함수단위로 인식(function scope) 
+        //let과 const는 블럭단위로 인식(block scope)
+
+        //연습1) 먼저 var
+        var g=10;//전역변수 g
+        if(true){
+            var g=20;//지역변수 g
+            document.write(g+"<br>");//20
+        }
+        document.write(g+"<br>")//20-함수단위로 인식 -함수가 없기에 위의 g와 아래 g 같음-->g=20 덮어씀
+
+        let h=10;//전역변수 h
+        if(true){
+            let h=20;//지역변수 g
+            document.write(h+"<br>");//20
+        }
+        document.write(h+"<br>")//10
+
+        //연습2)
+        if(true){
+            var k =50;
+            document.write(k+"<br>")//50
+        }
+        document.write(k+"<br>")//50
+
+        if(true){
+            let m =50;
+            document.write(m+"<br>")//50
+        }
+       // document.write(m+"<br>")//논리적에러(중간출력-멈춤)
+
+        //연습3) var이 함수단위라는 것을 확인
+        var n =10;
+        function aaa(){
+            var n = 5;
+            document.write(n+"<br>");//5
+        }
+        document.write(n+"<br>");//10
+        
+        function bbb(){
+            var p = 20;
+        }
+        bbb(); //메모리에 bbb()호출
+        //document.write(p+"<br>"); //에러 논리적에러 - 인식불가
+        //let은 당연히 위와 같은 동작. 함수도 block이므로
+
+        //반복문 사용시 
+        for(var i=0; i<3; i++){
+            document.write("aaa<br>")
+        }
+        document.write(i+"<br>");//3이 나옴.  - for문은 함수가 아님.
+
+        for(let j=0; j<3; j++){//let으로 쓰는 경우 
+            document.write("aaa<br>")
+        }
+        //document.write(j+"<br>");//- 숫자가 안나옴
+
+        //Hoisting 기술의 차이
+        document.write('<hr>');
+      
+        document.write(x+'<hr>');   
+                                    //Hoisting(호이스팅):변수선언보다 사용을 먼저해도 변수선언의 
+                                    //사용 이전으로 선언문을 이동시켜주는 기술
+                                    //단, 변수선언과 초기화(메모리할당)만 이동되고 값의 대입은 이동하지 않음.
+        var x =10;                  //undefined  
+        
+        //document.write(y+"<br>"); //에러-호이스팅은 되지만 프로세스에 변수명만 인식 등록되고 초기화 안됨(메모리할당이 안된 상태) 
+        let y=10;
+        
+        var z= 100;
+        {
+            document.write(z+"<br>")//에러
+            let z = 50;//호이스팅 : 앞쪽으로 끌어올리는 기술 
+                        //z=100은 z=50에 의해 가려짐. 다만 메모리에 쓰여지지 않는다.
+        }
+        
+        
+        document.write("asd");
+        
+
+        
+        
+
+    </script>
+
+
+
+</body>
+</html>

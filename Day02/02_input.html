@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>input test</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <!-- 한줄입력가능, 길이제한x -->
+        <!-- name속성 : 서버에 전송할 때 key로 사용되는 값는 설정 -->
+        <input type="text" size="40" name="in01">
+        <input type="password" name="in01">
+        <hr>
+        <!-- 라디오버튼, 같은 name값을 가지는 것이 중요 -->
+        라디오버튼
+        <input type="radio" name="rg">AAA
+        <input type="radio" name="rg">BBB
+
+        <br>
+        <!-- <label>버튼 요소를 사용하면 글씨를 눌렀을 때 선택됨 id와 for 속성 필요 -->
+            <!-- name은 같고 id가 다르도록, 글씨를 눌러도 클릭이 됨.  -->
+            <!-- label for = rb1 == rb1을 위한 레이블  -->
+        <input type="radio" name="rg1" id="rb1" value="male">
+        <label for="rb1">Male</label>
+        <input type="radio" name="rg1" id="rb2" value="female">
+        <label for="rb2">Female</label>
+
+        <!-- php에 선택된 라디오버튼에 value속성값이 날라간다  -->
+
+        <hr>
+
+        <!-- 체크박스 역시 name이 같아야 한 그룹이 됨 -->
+        <!-- label요소 안에 <input>요소를 넣으면 자동연결 -->
+        <label> <input type="checkbox" name="fruits" value="apple"> Apple</label>
+        <label> <input type="checkbox" name="fruits" value="banana"> banana</label>
+        <label> <input type="checkbox" name="fruits" value="orange"> orange</label>
+
+
+        <hr>
+        <!-- form 요소의 동작을 실행하는 type -->
+        <input type="submit" value="전송">
+        <input type="reset" value="리셋">
+            
+        <hr>
+        <!-- type이 Butoon -->
+        <input type="button" value="중복체크" onclick="alert('중복된 id입니다')">
+
+        <hr>
+        <!-- button요소도 있음 -->
+        <!-- <form>요소안에서 <button>요소를 사용하면 전송오류발생가능성, 사용자제 권장 -->
+        <button onclick="alert('clicked')">버튼요소</button>
+
+        <hr>
+        <!-- 이미지버튼 -->
+        <!-- 1.방법 -->
+        <button><img src="./access.png" alt="이미지버튼"></button>
+
+        <!-- 2.방법 -->
+        <!-- type=image는 <form>요소 안에서 type="submit"인것과 같은 역할  -->
+        <input type="image" src="./access.png" onclick="alert('clicked')">
+
+        <hr>
+
+        <!-- 여러줄 입력 - textarea -->
+        <textarea name="ta" cols="30" rows="10"></textarea>
+
+        <hr>
+        <!-- select : 콤보박스 -->
+        <!-- 서버로 보낼 데이터를 위한 속성 name은 select요소에 -->
+        <!-- 값을 보내는 value는 option요소에 작성 -->
+        <select name="sel">
+            <option value="a">aaaa</option>
+            <option value="b">bbbb</option>
+            <option value="c">cccc</option>
+        </select> 
+
+
+        <!-- option group -->
+        <select name="sell">
+            <optgroup label="text">
+                <option value="a">aaaa</option>
+                <option value="b">aaaa</option>
+                <option value="c">aaaa</option>
+            </optgroup>
+
+            <optgroup label="number">
+                    <option value="1">111</option>
+                    <option value="2">222</option>
+                    <option value="3">333</option>
+                </optgroup>
+
+        </select>
+
+
+        <hr>
+        <!-- fieldset : 영역에 테두리선 그려주는 요소  -->
+        <fieldset>
+            <legend>필드셋 영역 타이틀 </legend>
+            <label>이름 : <input type="text" name="name"></label><br>
+            <label>주소 : <input type="text" name="name"></label>
+        </fieldset>
+
+
+
+
+
+
+    </body>
+</html>

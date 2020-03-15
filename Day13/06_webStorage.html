@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Document</title>
+</head>
+<body>
+    <h3 id="aa"></h3>
+    <hr>
+    <h3 id="bb"></h3>
+    
+    <script>
+        //webStorage - localStorage 
+        //           - sessionStorage - Cookie - 내가 방문한 사이트를 컴퓨터에 저장(로그인정보, 방문위치)-웹스토리지는 5mb까지 정보 저장가능
+        //                            - Session - 암호화 key ,data로 나뉨. 서버에 저장 
+
+    
+        //웹문서기준: dotthome에 있는 html을 의미함. 
+        //웹스토리지 : 웹문서가 데이터를 client의 컴퓨터에 저장할 수 있는 기법
+        //웹스토리지 사용 예)페이지 방문횟수 저장
+        //웹스토리지 저장소 2가지
+        //1)localStorage(브라우져가 닫히더라도 데이터가 영구히 저장되어있음. )
+            if(!localStorage.cnt){ //혹시 localStorage안에 cnt변수가 없다면?
+                localStorage.cnt=0;  //cnt변수를 만들고 초기화 
+            }
+            //기존의 cnt값을 증가
+            localStorage.cnt++;
+            document.getElementById('aa').innerHTML=localStorage.cnt+" 번째 방문입니다"
+
+        //2)sessionSotrage(브라우져가 켜져있는 동안만 데이터를 저장함. ) //홈페이지 끄면 cnt 정보 날라감.   
+            if(!sessionStorage.cnt){
+                sessionStorage.cnt=0;
+            }
+            sessionStorage.cnt++;
+            document.getElementById('bb').innerHTML=sessionStorage.cnt+" 번째 방문입니다."
+        
+    
+        
+    </script>
+</body>
+</html>

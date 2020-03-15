@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Operator pratice</title>
+
+    <script>
+    //같은 변수의 선언 가능, 심지어 새로 선언해서 값을 넣지 않아도 기존 값 유지
+    var a=10;
+    var a= //10 나옴
+    document.write(a)
+    document.write('<br>')
+    //수치형 변수값 표기법
+    var b = 3.14;
+    //var b = 3.14f는 에러. 자바스크립트는 기본이 float
+    document.write(b)
+    document.write('<br>')
+
+    b=123.5e3; // e3이 10의 3승 //123500
+    document.write(b)
+    document.write('<br>')
+
+    b=123.5e-3; //0.1235
+    document.write(b)
+    document.write('<br>')
+
+    //연산자 중 특이한점
+    var c =1; //수치형
+    var d ="1"; //문자열
+    var e = 1.0; //이것도 수치형 
+
+    //자바스크립트에서의 비교연산자 ==은 자료형은 구분하지 않고 값만 비교함
+    document.write(c==d) //true 출력
+    document.write('<br>')
+    document.write(c==e)//true 출력
+    document.write('<br>')
+
+    //오해금지
+    document.write(1+6)//7
+    document.write('<br>')
+    document.write("1"+6)//16
+    document.write('<br>')
+
+    //그래서 JS에서는 자료형까지 함께 비교하는 연산자를 제공함. 
+    //===을 사용 
+    document.write(c===d) //false 출력 수치형!=문자열
+    document.write('<br>')
+    document.write(c===e)//true 출력 수치형==수치형(정수 실수 같다고 바라봄)
+    document.write('<br>')
+    document.write('<hr>')
+
+    //0으로 나눗셈
+    document.write(10/0) //infinity
+    document.write('<br>')
+
+    //비트연산자 중 >>>(시프트 연산자) : 부호까지 같이 밀어버림
+    //양수는 >>와 차이가 없고 음수일떄 부호가 바뀜 
+    var g = -16;
+    document.write(g>>>2)
+    document.write('<br>')
+
+    //표현가능한 최대값
+    document.write(Number.MAX_SAFE_INTEGER);
+    document.write('<br>')
+
+    document.write(123456789123456789123456789) //엄청 크면 지수표현식으로 변경됨
+    document.write('<br>')
+
+    //변수선언의 두번째 방법
+    k=5; //var 안쓰면 전역변수가 됨. 
+    document.write(k)
+    document.write('<br>');
+
+    //in과 delete연산자 instanceof 연산자-객체 수업때 다시 소개
+
+    //수치형과 문자형의 변환 
+    var h=1;
+    document.write(typeof(h))
+    document.write('<br>')
+    document.write('<hr>')
+    //number->String
+    h=h+"";
+    document.write(typeof(h))
+    document.write('<br>')
+    document.write(h)
+    document.write('<br>')
+    document.write('<hr>')
+    //string->number
+    h = parseInt("4"); //parseInt
+    document.write(typeof(h));
+    document.write('<br>')
+    document.write(h)
+    document.write('<br>')
+    document.write('<hr>')
+    //String->float
+
+     h = parseFloat("3.14"); //parseFloat
+    document.write(typeof(h));
+    document.write('<br>')
+    document.write(h)
+    document.write('<br>')
+    document.write('<hr>')
+    //숫자가 아닌것을 parse
+    h = parseInt("aaaaa"); //NaN : not a Number // 숫자가 아닌걸 parse한경우
+    document.write('<br>')
+    document.write(h)
+    document.write('<br>')
+
+    //수치형<->문자열 왜 할까
+    //사용자 입력은 무조건 String 타입으로만 읽어짐
+    //사용자로부터 입력을 받는 Dialog보여주기
+   var age=prompt("여기는 안내메세지 입니다",'여기는 힌트를 넣는 곳 ');
+   document.write(age+3) //age가 String이라서 산술연산이 아니라 결합됨.
+                         //값 넣으면 써진다. 2
+   document.write('<br>')
+
+   age=parseInt(age)
+   document.write(age+3)
+   document.write('<hr>')
+
+   //사용자 입력을 다이얼로그로 받으니 많이 불편함
+   //HTML의 input 요소를 이용해서 사용자입력처리해보기..
+    
+
+
+
+
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</head>
+
+<body>
+        
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- html 상위-하위 그리는거 dom tree라 한다 document object tree  -->
+        <meta charset="utf-8">
+        <title>기초연습</title>
+        <!-- 웹문서(HTML)에 스타일 적용하기, (스타일적용 언어 : CSS3) -->
+        <!-- 스타일 작성영역 [반드시 head요소에 있어야하는것은 아니지만 가급적 여기다 쓰는걸 권장] -->
+        <style type="text/css">
+   /* 언어적용이 css다.  */
+            /* 이 영역 안에서는 css언어의 문법을 따라야함 */
+            /* 이 영역 안에서는 html언어 문법사용 불가 */
+            /* 기본문법 : 선택자{속성:값;} */
+            /* 선택자 종류 총 6가지  */
+            /* 1.타입(요소종류) 선택자 */
+            h2{color:red}
+            p{color: blue; font-family:serif;}
+            /* 2. 전체 선택자 */
+            *{font-style: italic; color: black;}
+            /* 같은 스타일 적용시 개별선택자가 우선적용  */
+            /* 3. 아이디 선택자 id를 사용 */
+            #p1{color: green;}
+            /* id가 더 개별적 -> 우선순위가 더 높음. */
+            /* 4. 클래스 선택자  .을 사용 .이 class 연계 */
+            .aa{color:violet}
+            /* 4-1. 선택자 섞어쓰기 p중에서 클래스가 aa인 것*/
+            /* 띄어쓰기하면 다른 의미임.  */
+            p.aa{background: yellow;}
+            /* 5. 선택자 그룹 */
+            li, a{color: gray;}
+            /* 6. 자식, 자손, 선택자 */
+            /* >은 자식만, 자손은 안함 */
+            #ss>p{color: black;}
+             /*띄어쓰기는 다 포함. 자식과 자손은 우선순위x 마지막에 쓴게 적용   */
+            #ss p{color: lime;}
+
+            /* 아래 둘은 완전히 다름 */
+            p.aa{}  /* p요소 중에서 class가 aa인 요소를 선택*/
+            p aa{}  /* p요소의 자손들 중에서 class값이 aa인 요소 */
+
+            /* 복합적으로  아이디 kk중 ul들 중 클래스가 gg에 li자식인거*/
+            #kk ul.gg>li{background: aqua;}
+
+            /* 7. 속성 선택자 */
+            /* p요소중 클래스 속성이 지정된 요소  */
+            p[class]{font-size: 30px;}
+            div[id="ss"]{font-weight: bold;}
+            /* 8. 의사 선택자 */
+            /* link, visited는 브라우저마다 동작여부가 다름 */
+            a:link{color: blue}
+            a:link{color:brown}
+
+            a:hover{color:green}
+            a:active{color:red}
+            /* hover는 반드시link와 visited다음에 작성해야만 함 */
+            /* active는 반드시 hover다음에 작성해야함  */
+            /* kk 중 ul중 li */
+            #kk ul li:first-child{color: red;}
+            #kk ul li:last-child{color:blue;}
+            #kk ul li:nth-child(2){color:crimson;}
+
+            /* 수식을 이용한 n번째 자식 스타일링 짝수, 홀수 */
+            table tr:nth-child(2n){background: aqua;} 
+            table tr:nth-child(2n+1){background: chocolate;}
+
+
+        </style>
+
+        <!-- 스타일 적용방법 3가지 -->
+        <!-- 1. 외부 스타일 시트 -->
+        <!-- 2. 내부 스타일 시트  -->
+        <!-- 3. 인라인 스타일 시트 : 순서와 상관없이 최종적용 : 우선순위 1등-->
+
+        <!-- 같은 요소에 같은 속성을 적용하면 우선순위상 3번의 내용이 적용됨 -->
+        <!-- 내부 외부는 작성한 순서가 나중인 것이 적용 됨.  -->
+
+        <!-- 외부 스타일 시트 적용해보기 -->
+        <link rel="stylesheet" href="./01_ex.css">
+
+        <!-- 우선순위 적용을 알아보기 위해 02_test.html -->
+    </head>
+
+    <body>
+        <!-- 1~4선택자까지 연습용 요소들 -->
+        <h2 class="aa">CSS Selctor Test</h2>
+        <p id="p1">Hello world</p>
+        <p class="aa">Nice to meet you</p>
+
+        <!-- 5. 선택자 그룹 연습용 요소들 -->
+        <ul>
+            <li>aaa</li>
+            <li>bbb</li>
+            <li>ccc</li>
+        </ul>
+        <a href="">naver</a>
+
+        <!-- 6. 자식, 자손 선택자 연습용 -->
+        <div id="ss">
+            <h4>Region</h4>
+            <p>Hello World</p>
+            <div>
+                <p>Apple</p>
+                <p>Banana</p>
+                <p>Oragne</p>
+            </div>
+        </div>
+
+        <div id=kk>
+             <ul>
+                 <li>111</li>
+                 <li>222</li>
+                 <li>333</li>
+             </ul>
+
+             <ul class="gg">
+                    <li>uuu</li>
+                    <li>ppp</li>
+                    <li>zzz</li>
+                </ul>
+   
+        </div>
+
+        <!-- 8. 의사 선택자 연습용  -->
+        <a href="http://www.google.com" target="_blank">google</a>
+
+        <!-- 수식을 이용한 n번째 자식요소 선택 -->
+        <table border="1">
+            <tr>
+                <td>aa</td>
+                <td>bb</td>
+                <td>cc</td>
+            </tr>
+
+            <tr>
+                    <td>aa</td>
+                    <td>bb</td>
+                    <td>cc</td>
+                </tr>
+
+                <tr>
+                        <td>aa</td>
+                        <td>bb</td>
+                        <td>cc</td>
+                    </tr>
+
+        </table>
+    </body>
+</html>

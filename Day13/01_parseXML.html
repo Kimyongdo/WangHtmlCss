@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Document</title>
+<!-- jquery 라이브러리 추가하기. -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script>
+    //XML문자열 
+    var xml="<movie><title>Avatar</title><genre>sf, advanture</genre></movie>";
+    
+    //XML을 파싱해주는 jquery의 메소드 호출
+    var xmlDOM = $.parseXML(xml); //xml을 xmlDOM객체로 변환해줌(트리모양으로)
+    alert($(xmlDOM).find('title').text()+"\n"+$(xmlDOM).find('genre').text()); //
+</script>
+</head>
+
+
+<body>
+    
+    
+
+</body>
+</html>

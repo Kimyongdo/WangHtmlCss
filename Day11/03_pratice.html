@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>자바스크립트 폼 검증</title>
+</head>
+
+<body>
+
+    <h1>회원 신청서</h1>
+    <table>
+      <tr>
+        <td>이름</td>
+        <td><input type="text" id="name" onblur="name()"></td>
+      </tr>
+
+      <tr>
+          <td>성별</td>
+          <td>
+            <label><input type="radio" name="rg1" value="male">남성</label>
+            <label><input type="radio" name="rg1" value="female">여성</label>
+          </td>
+      </tr>
+
+      <tr>
+        <td>휴대폰번호Phone</td>
+        <td><input type="text"></td>
+    </tr>
+
+    <tr>
+        <td>이메일</td>
+        <td><input type="text"></td>
+    </tr>
+
+    <tr>
+        <td>패스워드(6-8글자)</td>
+        <td><input type="text"></td>
+    </tr>
+
+
+    <tr>
+        <td>패스워드 검증</td>
+        <td><input type="text"></td>
+    </tr>
+
+    
+    </table>
+
+    <script>
+       function name(){
+       
+        var name= document.getElementById('name').value;
+        alert(name);
+       var regEXP =/^[a-zA-Z]+$/;
+        if(name.match(regEXP)) alert('정답입니다.'); 
+        else alert('잘못된 이름입니다.');
+
+       }
+    
+
+
+
+
+    </script>
+
+</body>
+</html>

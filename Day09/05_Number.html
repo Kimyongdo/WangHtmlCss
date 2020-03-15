@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+
+    <script>
+        //2.Number (Wrapper객체 - )
+        //수치형과 Number는 다른 자료형
+        var a =10; //number
+        var b = new Number(10); 
+
+        document.write(typeof(a)+"<br>");//number
+        document.write(typeof(b)+"<br>");//object
+        document.write((a===b)+"<br>");//false
+
+        //Number의 객체의 기능들(메소드)
+        var num = new Number(123.456);
+        
+        //1)지수표현식
+        document.write(num.toExponential()+"<br>");//1.23456e+2
+        document.write(num.toExponential(2)+"<br>");//1.23e+2(소수점조절);
+
+        //2)소수점 자르기
+        document.write(num.toFixed()+"<br>");//123
+        document.write(num.toFixed(2)+"<br>");//123.46
+
+        //3) 진법변환표기(String으로..)
+        var num = new Number(10);
+        document.write(num.toString()+"<br>");//10 -10진법
+        document.write(num.toString(16)+"<br>");//a-16진법
+        document.write(num.toString(8)+"<br>");//12-8진법
+        document.write(num.toString(2)+"<br>");//1010-2진법
+
+        //수치형은 Number로 자동 wrapping됨
+        var a =255;
+        document.write(a.toString(16)+"<br>");//ff
+        
+        //직접 수치형값에 적용할수도 있으나 단, 소수점 표기가 명시적으로 있어야함. 
+        document.write(10.543871.toFixed(2)+"<br>");//10.54
+
+        //특정 자리수까지 같은지 비교할떄 활용 p.352
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <style>
+        /* 기본적인 dive요소의 스타일링 */
+        div#container>div{
+            /* div 원래 block이라 한 줄을 다 차지함.  */
+                     background-color: aqua;
+                     padding: 20px;
+                     margin: 10px;
+        }
+
+        /* flex스타일 적용하기 [자식요소의 배치방식을 부모요소에서 제어]*/
+        /* 유연한 구조이므로 브라우저사이즈에 반응하는 반응협웹에 적합함 */
+         
+
+        div#container{
+         /* 자식요소의 width가 inline-block처럼 wrap되어 옆으로 배치됨.  */
+            display: flex;
+            /* 기존방식과 차이점 : 기존방식은 자식요소들에게 직접 display속성을 적용했었음 */
+            /* 기본적으로 자식요소가 많아서 부모너비를 벗어나도 자동줄바꿈되지 않음. */
+            /* 만약 줄바꿈이 되고 싶다면 flxe관련 속성들 */
+
+            /* 1. flex-wrap  - 줄바꿈*/
+            flex-wrap: wrap; 
+            /* 옆으로 배치 */
+            flex-wrap:nowrap; 
+            /* 새로 줄바꿈이 위로 생김 */
+            flex-wrap: wrap-reverse;
+            flex-wrap:nowrap; 
+            /* 2. flex-direction */
+            /* 자식요소들은 기본적으로 가로방향 */
+            /* 이 배치방식을 변경하는 속성 마치 android orientaion과 비슷 */
+            flex-direction: column;
+            /* 부모의 아래부터 수직으로 올라가면서 배치됨 */
+            flex-direction: column-reverse;
+
+            /* 부모의 자식요소들보다 크게 해야 column-reverse를 정확히 알 수 있음 */
+            height: 300px;
+            
+            flex-direction: row;  /* 가로방향 */
+            flex-direction: row-reverse; 
+
+            /*direction wrap을 축약형 속성  */
+            /* row면서wrap  쓰는 순서는 의미없음*/
+            flex-flow: row wrap;
+            flex-flow: wrap column;
+
+            /* 기본상태 */
+            flex-flow: row nowrap;
+
+            /* 정렬에 사용되는 2가지 속성 */
+            /* 1. justify -content : direction방향의 정렬 */
+             /* 1.1 수평배열(row) 일 때는 수평정렬 */
+            flex-direction: row;
+            /* 맨 왼쪽  */
+            justify-content: flex-start;
+            /* 가운데 */
+            justify-content: center;
+            /* 끝에 놓쳐임 */
+            justify-content: flex-end;
+            /* 요소사이 공백 늘려즘  */
+            justify-content: space-between;
+            /* 요소들을 둘러싸는 공백의 너비가 같도록 between과 비슷 */
+            justify-content: space-around;
+
+
+             /* 1.2 수직배열(column)일때는 수직정렬/ */
+             /* 수직은 위에서 아래로 */
+             flex-direction: column;
+             /* top으로 정렬  */
+             justify-content: flex-start;
+             /* bottom 정렬 */
+            justify-content: flex-end;
+            /* 너비  */
+            justify-content: space-between;
+            justify-content: space-around;
+
+            /* 초기상태 */
+            justify-content: flex-start;
+            /* 2. align-items : direction과 교차되는 방향 정렬  */
+            flex-direction: row;
+            align-items: flex-start;
+            align-items: center;
+            /* 바닥 */
+            align-items: flex-end;
+
+            /* 수평배열일 때 요소의 높이를 부모사이즈만큼 넓힘[기본상태] */
+            align-items: stretch;
+            /* 요소안의 글씨의 아래를 기준으로 정렬  */
+            align-items: baseline;
+            /* 2.1 수직배열(row)일때는 수직정렬 */
+            /* 2.2 수직배열(colnmn) 일때는 수평정렬  */
+            flex-direction: column;
+            /* 왼쪽에 다 붙음 */
+            align-items: flex-start;
+            align-items: center;
+            align-items: flex-end;
+            /* 가로로 길어짐 */
+            align-items: stretch;
+            /* 글씨 아래라서(가로) 의미없음  */
+            align-items: baseline;
+
+            /* 수평배치, 개수 많아지면 자동줄바꿈 = wrap */
+            /* align정렬[direction의 교차정렬]에서 space-around, space-between*/
+            /* align-content속성을 사용해야함 */
+            flex-flow: row wrap;
+            justify-content: flex-start;
+            /* 줄바꿈 되었을떄의 margin이 똑같음 */
+            align-content: space-around;
+
+
+
+
+
+
+            
+
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        
+        <div>aa</div>
+        <div style="font-size: 30px;">bb</div>
+        <div>cc</div>
+
+        <!-- 만약 개수가 많으면 가로 사이즈를 벗어나면 
+            옆으로 스크롤링 -->
+
+        <!-- <div>aa</div>
+        <div>bb</div>
+        <div>cc</div>
+        <div>aa</div>
+        <div>bb</div>
+        <div>cc</div>
+        <div>aa</div>
+        <div>bb</div>
+        <div>cc</div>
+        <div>aa</div>
+        <div>bb</div>
+        <div>cc</div> -->
+    </div>
+
+    <hr>
+    <!-- 제목영역 만들 때 요소들을 가운데로 만들기  -->
+
+    <div id="aa">
+        <h2>Hello</h2>
+        <p>this is header</p>
+    </div>
+    <style>
+        div#aa{
+            height: 200px;
+            background: blueviolet;
+            color: white;
+            /* '정'가운데 정렬이 불가 -> flex사용 */
+            /* text-align: center; */
+            /* flex를 쓰면 모두 inline으로 처리됨  block특징 요소 사라짐. */
+            display: flex;
+            flex-direction: column;
+            /* 기본이 row 옆으로 이동.  */
+            justify-content: center;
+            /* 수직정렬  */
+            align-items: center;
+        }
+    </style>
+
+    <!-- 자식요소 입장에서 사용하는 flex 스타일속성  -->
+    <div id="container2">
+        <div id="ch1">aaa</div>
+        <div id="ch2">bbb</div>
+        <div id="ch3">ccc</div>
+    </div>
+
+    <style>
+        /* 자식요소의 기본 스타일 */
+        #container2>div{
+            background-color: violet;
+            padding: 20px;
+            margin: 10px;
+        }
+
+        /* 부모의 display가 flex가 아니면 자식요소의 flex는 의미가 없음 */
+        #container2{
+            display: flex;
+        }
+         /* 자식들이 사용하는 flex스타일 */
+            /* 1. order : 배치순서 변경 좋은습관은 아니니 있다는 것만 알길*/
+            #ch1{order: 3;}
+            #ch2{order: 1;}
+            #ch3{order: 2;}
+
+            /* 2. flex-grow :너비를 상대적인 값의 비례로 결정 */
+            /* android weight과 같음 */
+            /*  1:1:6 비율 */
+            #ch1{
+                order: 1;
+                flex-grow: 1;
+            }
+            #ch2{
+                order: 2;
+                flex-grow: 1;
+            }
+            #ch3{
+                order: 3;
+                flex-grow: 6;
+            }
+
+            /* flex-shrink : 나머지 아이템들에 비해 얼마나 줄어들것인가*/
+            /* 02_flex_shrink */
+            
+            /* 4. flex-basis : 요소의 초기길이, 최초 길이 지정 */
+           /* 공간의 여유가 있을때 최소길이 확보 */
+
+            #ch1{
+                flex-grow: 0;
+            }
+            #ch2{
+                flex-grow: 0;
+                flex-basis: 200px;
+            }
+            #ch3{
+                flex-grow: 0;
+                flex-basis: 300px;
+            }
+
+            /* 5. flex(축약형 -grow -shrink -basis */
+            #ch1{flex: 0 0 0;}
+            #ch2{flex: 0 0 0;}
+            #ch3{flex: 0 0 0;}
+
+            #ch1{flex: 1 0 0px;}
+            /* grow만 적용 */
+            #ch2{flex:3;}
+
+            /* self 정렬  */
+            #container2{
+                height: 300px;
+            }
+
+
+            #ch1{
+                /* strech에서 center로 변경 */
+                align-self: flex-start
+            } 
+
+            #ch2{
+                /* strech에서 center로 변경 */
+                align-self: center
+            }
+
+            #ch3{
+                /* strech에서 center로 변경 */
+                align-self: flex-end
+            }
+
+
+    </style>
+</body>
+</html>

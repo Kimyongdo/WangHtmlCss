@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <style>
+    *{padding: 0px; margin: 0px;}
+    #wrap{
+        /* 넓이를 90%로 */
+        width: 90%;
+        border: 4px solid black;
+        /* 양 옆 margin auto  가운데정렬  글자 가운데 정렬은 text-align*/
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+    #wrap div{
+        /* inline-block으로 지정하면 무조건 좌우여백이 존재함. (6픽셀정도) */
+        display: inline-block;
+        height: 100px;
+        width: 100%;
+        /* inline-block의 마진을 제거하기 위함. */
+        margin-right: -6px;
+    }
+
+    /* 서브 div 각각의 배경 색깔 정하기 */
+    #wrap div:first-child{
+        background-color: aqua;
+    }
+
+    #wrap div:nth-child(2){
+        background-color: lightgreen;
+    }
+
+    #wrap div:nth-child(3){
+        background-color: hotpink;
+    }
+
+
+    #wrap div:nth-child(4){
+        background-color: sienna;
+    }
+
+    #wrap div:last-child{
+        background-color: yellow;
+    }
+
+    /* 태블릿 사이즈일때 */
+    /* 화면사이즈 600px이상일때 phone-landscape(가로모드) or table  */
+    @media all and (min-width: 600px){
+        #wrap div{width:50%}
+        #wrap div:last-child{width:100%}
+    }
+
+    /* 데스크탑 모니터일때 800px이상일 때*/
+    @media all and (min-width:800px){
+        /* 테블릿에 조건을 두개 다 주었기에 여기서도 2개이상 조건을 줘야
+        개별선택자 우선순위에서 밀리지 않음. 
+        */
+        #wrap div {width:20%;}
+        #wrap div:last-child{width: 20%;}
+    }
+    </style>
+
+
+</head>
+<body>
+    <!-- 영역 안에 영역을 넣기 -->
+    <div id="wrap">
+        <div>aa</div>
+        <div>bb</div>
+        <div>cc</div>
+        <div>dd</div>
+        <div>ee</div>
+    </div>
+</body>
+</html>

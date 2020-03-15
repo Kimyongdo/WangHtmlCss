@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    
+    <script>
+    //예외처리
+    //lert('aaa');//error가 alert에서 나면 다음줄인document도 나오지 않음. 
+    try{
+        alet('aaa'); //error(alert의 r을 제거)
+    }catch(e){
+        document.write(e+"<br>"); //에러가나면 catch문으로 이동되고 프로그램은 멈추지 않음. 
+    }
+    document.write("에외처리<br>"); 
+
+    //finally
+    try{
+        aaa();
+    }catch(e){
+        document.write(e+"<br>");
+    }finally{
+        //에러가 나든 안나든 무조건 실행되능 영역
+        document.write("무조건 실행"+"<br>");
+    }
+
+    
+    function aaa(){
+
+    }
+
+    //throw 일부러 예외를 발생시켜 예외처리하는 기법
+    try{
+        var a=10;
+        var b=15;
+        var c =a-b;
+        //음수가 나오면 원래는 에러가 아니지만 에러인것처럼 인지
+        if(c<0) throw "음수결과는 불가능합니다." 
+        //음수인 경우 thow 를 쓰면 e로 의도적으로 전달됨. 
+
+        document.write("결과 : "+c+"<br>");
+    }catch(e){
+        document.write("에러 : "+e+"<br>");
+    }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>title</title>
+        
+        <style>
+        img{float:left}
+        /* both를 쓰는게 편함. flaot의 방향과 맞춰야함. */
+        /* flato과 단짝인 친구 clear */
+        .p2{clear: both;}
+        /* float된 이미지와 요소의 마진을 주고 싶으면 float된 이미지에 margin 적용 */
+        img{margin:10}
+        </style>
+    </head>
+
+    <body>
+
+        <img src="./sunshine.jpg" alt="image" width="160" height="120">
+        <!-- 왼쪽 마진 적용해보기 -->
+        <p style="margin-left: 10px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium nesciunt, id voluptatibus voluptatem accusantium maiores minus doloribus. Qui suscipit quaerat totam, dolorem numquam, consequuntur doloribus aliquam debitis quis est sunt.
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel, magnam, ea illum aperiam dicta rerum exercitationem odio at voluptatum ab praesentium quod ut ratione consequatur nemo quaerat. Veniam, tempore officiis!
+        </p>
+        
+        <!-- float에 의해 요소가 아래에 깔리는 것을 확인해보기 -->
+        <!-- 크게 보면 사진 아래로 들어가는게 보임. -->
+        <p style="background-color: yellow; border: 2px solid red;">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus, hic molestias. Quas recusandae repudiandae nesciunt velit nobis id neque esse, quaerat impedit totam doloribus reiciendis nihil nam laboriosam? At, magnam.
+        </p>
+        
+        <p class="p2">여기는 위 이미지와 상관없는 블럭입니다.</p>
+
+        
+
+    </body>
+</html>

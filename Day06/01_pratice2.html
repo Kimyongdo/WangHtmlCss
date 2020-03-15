@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    #aa{
+
+        /* !!!!! 애니메이션 효과를 적용한다고 가정했을 때
+        position:absolute를 써야 작동이 됨. 
+        */
+        position: absolute;
+        width: 100px; height: 100px; 
+        background-color: red;
+    animation-name: translate1;
+        animation-duration: 3s;
+        animation-iteration-count: infinite;
+
+    }
+    
+    @keyframes translate1{
+        
+        0%{left: 0px; top:0px;}
+        25%{left: 250px; top: 0px;}
+        50%{left: 250px; top:250px}
+        75%{left: 0px; top: 250px;}
+        100%{left: 0px; top: 0px;}
+        
+    }
+
+    </style>
+
+
+</head>
+
+<body>
+    <div id="aa"></div>
+</body>
+</html>

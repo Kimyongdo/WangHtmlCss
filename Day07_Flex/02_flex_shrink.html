@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <style>
+        /* div지만(block) flex를 써 옆으로 늘어남. */
+        .container{display: flex;
+        
+        }
+        .container>div{
+            background-color: aqua;
+            width: 100px;
+            margin: 10px;
+            text-align: center;
+            line-height: 50px;
+        }
+    </style>
+</head>
+<body>
+ 
+    <div class="container">
+        <div>1</div>
+        <!-- 다른놈에 비해 줄어들지 않겠다.  -->
+        <div style="flex-shrink: 0;">2</div>
+        <div>3</div>
+        <!-- 다른 애들과 똑같이 줄어들겠다 -->
+        <div style="flex-shrink: 1;">4</div>
+        <div>5</div>
+        <!-- 다른애들이 1줄어들때 두배로 줄어들겠다. -->
+        <div style="flex-shrink: 2;">6</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+    
+
+    </div>
+    
+</body>
+</html>

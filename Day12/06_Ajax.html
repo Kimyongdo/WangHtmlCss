@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script>
+
+        function clickGET(){
+            //서버와 데이터를 주고받는 객체생성(android의 HttpUrlConnection과 같은 객체)
+            var req= new XMLHttpRequest();
+            // 저 아래 send()메소드에 의해 서버와 연결되고 echo된 결과를 돌려받았을 때
+            //콜벡이벤트 처리
+            //오버라이드 하는 느낌
+            req.onreadystatechange=function(){
+                //서버로부터의 통산상태에 대한 결과를 받는 콜백함수
+                $('#ta').append(req.readyState+" , "+req.status+"\n");
+                if(req.readyState==4 && req.status==200){
+                    //4와 200은 완료가 되었음을 의미하는 약속된 숫자
+                    //text의 내용이 나온다. 
+                    $('#ta').text(req.responseText)
+                }
+            }
+            //get방식으로 Test.txt, 비동기방식설정여부 = true
+            //req.open('GET','Test.txt',true); <-----여기서는 텍스트의 내용이 나온다,
+            //Ajax. php이동했는데 여전히 
+            req.open('GET','getTest.php?name=sam&pw=1234',true); 
+            req.send();//요청시작
+        }
+
+        //readyState갭의 종류
+        //1. 서버에서 요청내역을 로딩하고 있다는 응답
+        //2. 서버에서 요청내역을 로딩을 완료했다는 응답
+        //3. 서버에서 작업을 하고 있는 중이다..라는 응답
+        //4. 작업완료되었다는 응답
+
+        function clickPOST(){
+            var req = new XMLHttpRequest(); //서버연결
+            //thread를 사용하기 때문에 이 순서가 바뀌면 안된다. 
+            req.onreadystatechange=function(){ //돌려받을 메소드 등록 
+                if(req.readyState==4 && req.status==200){
+                    $('#ta').text(req.responseText);
+                }
+            };
+            req.open('POST','postText.php',true);  //post방식 설정//true은 thread방식
+            //Data를 post로 보내기 위한 헤더작업 필요함.
+            req.setRequestHeader('Content-Type','application/x-www-form-urlencoded') //www월드와이드웹 - form 형식 - url 인코드 형식으로 
+            req.send('name=robin&pw=4567');//post보낼 데이터를 send()의 파라미터로 전달 //get방식과 다르다
+
+
+             
+        }   
+
+    </script> 
+</head>
+<body>
+    <h3>회원 가입 화면</h3>
+
+    <p>
+        <button onclick="clickGET()">GET</button>
+        <button onclick="clickPOST()">POST</button>
+    </p>
+   
+    <hr>
+    <textarea id="ta" cols="30" rows="3"></textarea>
+
+</body>
+</html>

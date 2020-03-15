@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        /* #, . 필요없이 바로 사용 가능 */
+        header{
+            background: plum;
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0px;
+            padding: 5px;
+            /* 헤더를 감싸는 요소 body가 마진이 원래 남아있음.  */
+            text-align: center;
+        }
+
+        /* h1도 기본 마진이 존재함. margin 5px는 생각보다 안 큼 */
+        header h1{margin: 0px;} 
+
+        body{
+            /* 바디에서 0px로 만들어야 글씨들이 딱 붙을 수 있음.  */
+        
+            margin: 0px;
+        }
+
+        nav{
+            /* 좌우로 둘 때는 table이 씀 요즘은 flex */
+            /* float자체가 힘들어서  */
+            /* table cell 하나로 지정해라. */
+            display: table-cell;
+            background-color: sandybrown;
+            padding: 15px;
+        }
+
+        section{
+            display: table-cell;
+            background-color: lightyellow;
+            padding: 15px;
+        }
+
+        footer{
+            background-color: brown;
+            text-align: center;
+            padding: 10px;
+            margin: 0px;
+            font-size: 90%;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- 시멘틱 요소들은 기본적으로 div와 같은 모양 및 스타일을 가짐  -->
+    <header>
+        <h1>My Blog Page</h1>
+        
+    </header>
+    <nav>
+        <h2>Links</h2>
+        <ul>
+            <li><a href="https://naver.com">W3C</a></li>
+            <li><a href="https://naver.com">MOZILLA</a></li>
+            <li><a href="https://naver.com">HTML Dogs</a></li>
+        </ul>
+
+        <figure>
+            <!-- 이미지 속성 figure요소 안에 넣는다. 시멘틱요소임. -->
+            <img src="./pome.png" alt="포메" width="85px" height="85px">
+            <!-- 구글에서 포메리안을 치면 figurecaption에 의해 노출이 된다.  -->
+            <figcaption>포메리안</figcaption>
+        </figure>
+
+    </nav>
+    <section>
+        <article>
+            <h3>Semantic Tags</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                Eveniet quis natus hic, totam quisquam esse ducimus dolor culpa
+                 porro explicabo laboriosam labore voluptate doloremque provident 
+                 magnam odit eum obcaecati fuga!</p>
+        </article>
+
+        <article>
+                <h3>div와 span</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Eveniet quis natus hic, totam quisquam esse ducimus dolor culpa
+                     porro explicabo laboriosam labore voluptate doloremque provident 
+                     magnam odit eum obcaecati fuga!</p>
+            </article>
+    
+    </section>
+    <footer>
+        CopyRight &copy; 2019 
+    </footer>
+</body>
+</html>

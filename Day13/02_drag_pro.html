@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+
+        <style>
+            div#cart{
+                width: 400px; height: 150px; padding: 10px; border: 1px dotted red;
+            }
+        </style>
+
+        <script>
+            //드래그를 하는 요소의 id값을 저장하는 변수
+            var id;
+            var overTarget= false; //타겟위에 드래그된 상태냐?
+
+            function startDrag(){
+                id= event.target.id; //이벤트를 발생한 요소의 id를 저장
+            }
+
+            function endDrag(){
+                if(overTarget){
+                    //저장된 id를 통해 드래그 하는 요소를 찾아오기
+                    var e= document.getElementById(id);
+
+                    //찾은 e 요소를 타겟(div #cart)으로 옮기기
+                    document.getElementById('cart').appendChild(e);// 자동으로 이동됨
+
+                    overTarget=false;
+                }
+                
+            }
+
+            function overDrag(){
+                //기본적으로 요소위에 요소가 놓여질 수 없도록 디폴트값이 있음.
+                //이 디폴트값을 거부해야만 함.
+                event.preventDefault();
+                overTarget=true;
+            }
+
+            function leaveDrag(){
+                overTarget=false;
+            }
+        </script>
+
+    </head>
+    <body>
+        
+        <div id="cart" ondragover="overDrag()" ondragleave="leaveDrag()"></div>
+
+        <img src="./ic_launcher-web.png" width="150" height="150" id="img01" ondragstart="startDrag()" ondragend="endDrag()" >
+        <img src="panda.png" width="150" height="150" id="img02" ondragstart="startDrag()" ondragend="endDrag()" >
+
+    </body>
+</html>

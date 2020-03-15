@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+
+    <!-- head 영역안에 여러개의 <script>가 존재함. -->
+        <!-- 하나의 script안에서는 메소드 호출과 함수는 순서 상관없으나
+        script끼리에서는 순서가 중요해짐. -->
+    <script>
+        //함수 선언 및 호출[선언적 함수]
+        function aaa(){
+            document.write("aaa를 호출합니다.<br>") //여기는 선언
+        }
+        aaa(); //JS에서 함수호출
+        //대부분의 작업은 HTML요소에서 특정이벤트에 따라 호출
+        //하는 것이 일반적인(EX. button onclick속성 )
+
+        //특이한 점은 함수 선언하는 위치가 호출하는 위치보다 나중에 있어도 됨.
+        //c언어의 경우 오류남. 
+
+        bbb(); //호출먼저
+       
+        function bbb(){
+            document.write("bbbb 호출");
+        
+        }
+
+        //아래에 선언된 ccc호출
+        ccc(); 
+
+        //같은 스크립트 안에서는 순서 상관 없음 
+        //다른 스크립트에서는 순서에 영향 있음 
+    </script>
+    
+    
+    <script>
+        bbb(); //다른 스크립트에 선언된 함수 호출 가능! [ 위에 선언되어 있으므로]
+        ccc();
+        function ccc(){
+            document.write("ccc호출");
+
+        }
+        ddd();//body요소에 선언된 함수 호출 불가
+    </script>
+
+
+    <!-- 파라미터 전달  -->
+    <!-- 새로운 script -->
+    <script>
+        document.write('<hr>');
+        document.write('<h4>Parameter</h4>')
+    
+        //인수로 받는 파라미터는 var키워드를 받지 않습니다. 쓰면 error
+        function eee(a){ 
+            document.write(a+" 호출합니다.<br>")
+        }
+        eee(10)
+        eee("kim")
+        eee(new Date())
+
+        //만약 패러미터를 전달하지 않으면
+        eee(); //undifiend
+
+        function fff(a,b){
+            document.write(a+" , ")
+            document.write(b+"<br>")
+        
+            var c = a+b
+            document.write('결과 : '+c +'<br>')
+
+        }
+        fff(5,3) //5, 3, 8
+        fff(5) //결과 : NaN //패러미터 하나만 넣은 경우 
+
+    
+       // 같은 함수를 또 선언하면? --> 마지막에 정의된 함수로 모든게 갈아낌. 
+        function eee(a){
+            document.write('새로 선언한 함수 eee')
+        }
+
+        //함수의 오버로딩 : [함수명은 같고 파라미터가 다른 ]
+        //오버로딩이라는 개념이 존재하지 않고 함수명이 같으므로 위처럼 새로운 함수로 대체됨
+        //가장 마지막에 선언된 함수가 영향을 미친다. (하나의 script문서 안에 여러개의 함수 중 가장 마지막만 영향력이 있음)
+        function eee(a,b){
+            document.write('험수 오버로딩!!<br>')
+        }
+    </script>
+
+    <!-- 리턴과 관련된 내용 -->
+    <script>
+        document.write('<hr>')
+        document.write('<h4>return & etc</h4>')
+
+        function ggg(){
+            return 10;
+            // return값 다양하게 호출 가능 "aaa", 5>2, new Date();
+
+        }
+
+        var g = ggg();
+        document.write(g+' 을 호출합니다 <br>')
+        
+        //객체의 리턴도 수월
+        function hhh(){
+            return {name:"sam", age:20}
+        }
+        var p = hhh();
+        document.write(p.name + ", "+p.age)
+    </script>
+
+
+
+    <!-- 지역변수와 전역변수 -->
+    <script>
+        document.write('<hr>')
+        document.write('<h4>Local vs Global variable</h4>')
+
+        //var a = 10;
+        function mmm(){
+            //하나는 
+            //var a = 20 ; //지역변수 <-- 이걸 살리면 그냥 지역변수 a에 값 넣는 것에 불과.
+            a=30; //var키워드 없이 변수를 만들면 전역변수 - 함수 내부에서 만들어도 안과 밖 알아들음
+            document.write("지역변수"+a+"을 호출합니다.<br>")
+        }
+        mmm();//함수호출
+        document.write("전역변수: "+a+"을 호출합니다. <br>")
+        
+        //지역변수에 대한 범위가 다른 언어와 다름
+        //JS의 지역변수는 변수가 선언된 {}지역이 아니라 함수 단위임. 
+
+        // i가 4가 아니라 5가 나온다는게 신기했음.. 
+        for(var asdf=0; asdf<5; asdf++){
+            document.write(asdf+ ", ")
+        }
+        document.write('<br>')
+        document.write("asdf : " + asdf + "<br>") //5가나옴.. 이게 k가 왜 먹히냐..
+    </script>
+
+    <!-- 익명함수 : 자바의 익명객체와 비슷한 역할  -->
+    <script>
+    
+      document.write('<hr>')
+        document.write('<h4>Anonymous function 익명함수</h4>')
+    
+        //익명함수는 변수에 대입하여 사용, 변수 만들어지기 전 사용 불가.
+        //show(); //error; - 에러가 나면 이 아래도 안나옴 다만 이 에러는 이걸 감싸는 <script>에서만 가능
+
+            
+    //함수의 이름이 없는 함수(익명함수)
+    var show = function(){
+        document.write('show!!<br>')
+    }
+
+    //익명함수를 가진 show변수가 함수의 이름이 됨. 
+    show();
+
+    //익명함수는 이벤트 처리용함수로 선호됨![하이브리드 앱개발에 많이 애용]
+
+    </script>
+
+<!-- 함수를 다른 함수의 매겨변수 or 리턴타입으로 사용하기  -->
+
+<script>
+        document.write('<hr>')
+        document.write('<h4>function 매개변수 전달</h4>')
+
+function kkk(gg){
+   gg(); //이 함수는 매개변수로 받은 gg가 함수로 만든 ㄱ서 
+}
+//익명함수를 만들고 변수에 참조
+var sss = function(){
+    document.write('sss function!!<br>')
+}
+
+//익명함수로 매개변수 전달
+kkk(sss);
+
+//sss라는 변수없이 곧바로 익명함수를 넣을 수도 있음.
+//마치 android에서 리스너객체 사용하는 것과 비슷함. 
+kkk(function(){document.write('Hello world<br>')}) //하나의 객체라고 생각. 
+
+
+//당연히 리턴도 가능함.
+
+function hhh(){
+
+    var ppp = function(){
+        document.write('ppp fucntion<br>')
+    }
+    return ppp;
+}
+
+var ttt = hhh(); //hhh가 익명함수이므로 hhh()를 사용하기 위해서 ttt()로 사용함. 
+ttt();
+
+//심지어 이런 표기법도 가능함.
+hhh()(); //결국 ppp함수가 실행됨! //권장하지는 않음. 
+
+
+</script>
+
+
+<script>
+        document.write('<hr>')
+        document.write('<h4>arguments 배열객체</h4>')
+
+        //arguments배열 : 함수의 매개변수를 자동으로 저장해주는 내장 배열변수 
+        //이걸 쓰면 파라미터로 안써도 됨. 하지만 자주 쓰지는 않음. - 사용자가 파라미터를 몇개 넣을지 모를 때
+        function add(){
+            //arguemtns 배열변수는 만든적은 없지만 기본적으로 존재, 자동으로 파라미터 요소 가짐.
+            document.write(arguments.length+"<br>") //전달된 파라미터 개수
+            for(var i=0; i<arguments.length; i++){
+                document.write(arguments[i]+ " , ")
+            }
+            document.write('<br>')
+        }
+
+
+
+        add();
+        add(10);
+        add(10,20);
+
+
+        </script>
+        <!-- 클로저(closer) -->
+        <!-- 클로저는 독립적인(자유) 변수를 가리키는 함수 -->
+        <!-- 흔히 함수 내에서 함수 정의하면 클로저라고 함수[이너클래스 같은 모양] -->
+
+        <script>
+         document.write('<hr>')
+        document.write('<h4>Closer</h4>')
+        
+        //함수를 종료된 후에도 내부함수에 지역변수가 남아있는 상황
+        //cnt는 지역변수이므로 함수 outer가 종료되면 없어져야할 변수
+        //다른 함수 즉, inner에서 지역변수 cnt를 사용하면 메모리에 존속시켜주는 특징이 생김
+        //클로저 변수라고 부름.
+        function outer(){
+            var cnt=0;
+            function inner(){
+                cnt++;
+                document.write('클로저변수 :'+cnt+"<br>")
+
+            }
+            return inner;
+
+        }
+
+
+        var jj = outer(); //결국 jj변수는 리턴된 inner()함수 참조
+        jj(); // ()로 표현하는거 이해안감 ㅎㅎ;;
+        jj();
+        jj(); //이너만 어려번 부르는 상황 
+      
+        </script>
+
+
+</head>
+
+
+<body>
+    <hr>
+    <h2>Body Region</h2>
+
+    <!-- body요소는 언제나 head요소의 함수를 호출,  -->
+    <script>
+    
+    aaa(); 
+    function ddd(){
+        document.write("ddd를 호출합니다.")
+    }
+    </script>
+</body>
+</html>

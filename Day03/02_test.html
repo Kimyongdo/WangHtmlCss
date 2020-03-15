@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>test</title>
+
+        <!-- 스타일 적용방법 3가지 -->
+        <!-- 1. 외부 -->
+        <link rel="stylesheet" href="./02_test.css">
+        <!-- 2. 내부 -->
+        <style>
+        p{color: red;}
+        /* 내부, 외부 우선순위 없어서 마지막만 적용 */
+
+
+        </style>
+        <!-- 3. 인라인 -->
+
+    </head>
+
+    <body>
+        <!-- 3. 인라인 스타일 : 요소의 속성으로 스타일 적용 -->
+        <p style="color: cadetblue;">Hello World</p>
+
+        <!-- 내부스타일을 body영역 안에 넣어도 됨 -->
+        <style>
+        p{color: brown;}
+        </style>
+
+        <!-- 외부스타일도 연결도 body내에서 가능함 -->
+        <link rel="stylesheet" href="./02_test.css">
+    </body>
+</html>

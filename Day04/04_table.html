@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf=8">
+        <title>title</title>
+
+        <style>
+        table{
+            /* 경계선 두줄 -> 한줄로  */
+            border: 2px solid; border-collapse: collapse; text-align: center;
+        }
+
+        th,td{
+            border:1px solid; padding:10px 5px
+        }
+
+        th{
+            /* color : 글씨 색깔 */
+            background-color: sandybrown; color: slategray;
+        }
+
+        /* 짝수줄만 배경색 다르게 */
+        tr:nth-child(2n){
+            background-color: springgreen;
+        }
+
+        /* td중 첫번째 == 총 4개 */
+        td:nth-child(1){width: 40%;}
+
+        /* solid대신 double 두줄  */
+        th{border-bottom: double red;}
+
+        /* 직접 만들지 않았지만 그래서 보이지 않지만 실제  */
+        /* table안에 첫번째 자식은 tr이 아니라 tbody라는 녀석임.  */
+        /* tbody 테이블 외곽이 다 파랑색으로 변경 */
+        table>:nth-child(1){border:10px solid blue}
+
+        /* table의 자손 tr-td 모두 violet으로 변경.  */
+        table tr{color: violet;}
+        /* table의 자식중에는 오직 tbody만 있음 자손이 tr이 있음. 오해요소 있음 조심할것  */
+        table>tr{color:red}
+        </style>
+    </head>
+
+        <body>
+         <table>
+             <tr>
+                    <th>이름</th>
+                    <th>이메일</th>
+             </tr>
+            <tr>
+                <td>홍길동</td>
+                <td>asdf@naver.com</td>
+            </tr>
+            <tr>
+                    <td>남길동</td>
+                    <td>asdf@naver.com</td>
+                </tr>
+                <tr>
+                        <td>구로로</td>
+                        <td>asdf@naver.com</td>
+                    </tr>
+                    <tr>
+                            <td>네커피</td>
+                            <td>asdf@naver.com</td>
+                        </tr>
+         </table>
+        
+
+
+        </body>
+</html>

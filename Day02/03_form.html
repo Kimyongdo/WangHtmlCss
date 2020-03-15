@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>form example</title>
+</head>
+
+<!-- form: <a>와 비슷하게 다른 문서 실행, 데이터 전달 가능  -->
+<body>
+    <!-- get method form pratice -->
+
+    <!--  http://127.0.0.1:5500/Day02/01_ex.html?name=111&msg=222  데이터를 전달한다. -->
+     <!-- html 자체는 데이터를 받을 수 없음. -->
+<!-- php와 html파일은 서로 dothome에 넣어야 함  -->
+
+
+<!-- http://chocojoa123.dothome.co.kr/web/03_getTest.php?name=222&msg=2222  -->
+<!-- 여기서 쓴 "name"이  php에서는 $name=$_GET['name'];로 사용됨.-->
+<!-- post get방식에서 변수전달 받을때 name으로 받아옴.  -->
+<!-- 하지만 그 속에 속한 값은 value로 지정함.  -->
+<form action="./03_getTest.php" method="get">
+    <input type="text" name="name">
+    <input type="text" name="msg">
+<input type="submit">
+</form>
+
+<hr>
+
+<!-- post method연습 -->
+<!-- form이 감싸고 있는 값들을 모두 보낼 수 있음.  -->
+<form action="./03_postTest.php" method="POST">
+<fieldset>
+    <!-- &보다 &amp;를 써여한다. 특수기호 조심 -->
+    <legend>input &amp; post method test</legend>
+    <!-- for와 id -->
+    <label for="in_name">name:</label>
+    <input type="text" name="name" id="in_name">
+
+    <br>
+
+    <label>pass: <input type="password" name="pw"></label>
+    <p>
+        gender:
+        <!-- type name은 같아야하고 value만 다르게.  -->
+        <label><input type="radio" name="rg1" value ="male" checked>male</label>
+        <label><input type="radio" name="rg1" value ="female">female</label>
+    </p>
+
+    <p>
+        fruits:
+        <!-- value값을 써야 php쪽으로 데이터가 날라간다  -->
+        <!-- fruits[]을 안쓰면 두개 체크할 경우 맨 마지막만 날라감 -->
+        <label><input type="checkbox" name="fruits[]" value="Apple" checked>Apple</label>
+        <label><input type="checkbox" name="fruits[]" value="banana">banana</label>
+        <label><input type="checkbox" name="fruits[]" value="orange">orange</label>
+    </p>
+
+    <p>
+        msg:<br>
+        <textarea name="msg" cols="30" rows="10"></textarea>
+    </p>
+
+    <div>
+        <select name="sel">
+            <!-- value의 값이 sel로 넘어간다  -->
+            <optgroup label="자동차브랜드">
+                <option value="현대">현대</option>
+                <option value="기아">기아</option>
+                <option value="쉐보레">쉐보레</option>
+            </optgroup>
+        </select>
+    </div>
+
+    <p></p>
+        <div>
+        <input type="submit" value="전송">
+        <input type="reset" value="취소">
+    </div>
+
+
+</fieldset>
+</form>
+
+
+<hr>
+<!-- 파일선택하여 서버에 업로드하기 -->
+<!-- 파일은 url 붙일 수 없기에 post multipart 반드시 필요  -->
+<form action="./03_file.php" method ="POST" enctype="multipart/form-data">
+    <!-- accpet속성 : 파일선택기에서 해당하는 파일타입만 보이도록  폴더 열었을때 이미지만 보이게 accpet 사용 --> 
+<input type="file" name="aaa" accept="image/png"><br>
+<input type="submit" value="전송">
+</form>
+
+<hr>
+<!-- multiple : 여러개의 파일 선택  -->
+<!-- 키와 벨류가 같으면 벨류 생략 가능 -->
+<!-- 여러개를 보내기 위해 aaa[]를 사용  -->
+<form action="./03_file2.php" method="POST" enctype="multipart/form-data">
+<input type="file" name="aaa[]" multiple>
+<input type="submit">
+
+</form>
+
+
+
+
+</body>
+</html>

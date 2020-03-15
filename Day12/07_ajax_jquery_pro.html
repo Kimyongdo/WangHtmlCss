@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+
+        <!-- JQuery 추가 -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+        <script>
+            $(document).ready( function(){
+                //jquery에서 ajax기술을 위해 만든 4개의 메소드
+                //1) get()
+                $('#b1').click( function(){
+
+                    //get메소드 수행
+                    $.get('test.txt', function(data, status){
+                        $('#ta').val(data +"\n\n STATUS : "+ status);
+                    });
+
+                    $.get('getTest.php?name=sam&pw=1234', function(data, status){
+                        $('#target').html(data);
+                    });
+
+                });
+
+                //2) post()
+                $('#b2').click(function(){
+
+                    $.post('test.txt', function(data,status){
+                        $('#ta').val(data);
+                    });
+
+                    $.post('postTest.php', {name:"robin", pw:"5678"} ,function(data, status){
+                        $('#target').html(data);
+                    });
+
+                })
+
+                //3) ajax()
+                $('#b3').click(function(){
+                    //ajax()에 {}객체 1개 전달
+                    $.ajax( {
+                        type:"GET",
+                        url: "test.txt",
+                        success: function(data){//status는 생략해도 됨
+                            $('#ta').val(data);
+                        },
+                        error: function(error){
+                            $('#ta').val(error.responseText);
+                        }
+                    } );
+
+                    $.ajax( {
+                        type:"POST",
+                        url: "postTest.php",
+                        data: "name=hong$pw=4567",
+                        success: function(data){//status는 생략해도 됨
+                            $('#ta').val(data);
+                        },
+                        error: function(error){
+                            $('#ta').val(error.responseText);
+                        }
+                    } );
+
+                });
+
+                //4) load()
+                $('#b4').click(function(){
+                    $('#ta').load('test.txt');//get방식으로 읽어서 ta에 값을 넣음
+
+                    //HTML문법을 그대로 가져옴.
+                    $('#target').load('05_noajax.html');
+
+                });
+
+            } );            
+        </script>
+
+    </head>
+    <body>
+
+        <p>
+            <button id="b1">get Method</button>
+            <button id="b2">post Method</button>
+            <button id="b3">ajax Method</button>
+            <button id="b4">load Method</button>
+        </p>
+        <hr>
+        <textarea id="ta" cols="30" rows="5"></textarea>
+        <div id="target"></div>
+        
+    </body>
+</html>

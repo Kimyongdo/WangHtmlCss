@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+
+    <script>
+    //일반적인 알림경고창. 알림이 여러개면 순차적으로 실행.
+    alert();
+    alert('알림');
+
+    //사용자에게 확인/취소하도록 하는 다이얼로그
+    var answer = confirm("종료하시겠습니까?");
+    document.write(answer+"<br>"); //ture or false로 출력됨.
+
+    //사용자 입력을 받을 수 있는 다이얼로그
+    //값을 입력하지 않으면 두번째 파라미터가 리턴뒤고, 취소하면 null을 리턴)
+    var age= prompt("당신의 나이를 입력하세요.","0");
+    document.write(age); //리턴타입은 언제나 String
+    document.write("<br>"); 
+    document.write(typeof(age)); //null로 나오면 object
+    </script>
+</head>
+
+
+<body>
+    
+</body>
+</html>

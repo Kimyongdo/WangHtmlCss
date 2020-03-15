@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  
+    <title>Document</title>
+
+    <style>
+        body{margin: 0px; }
+        header{height: 200px; 
+            background-color: slateblue;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        /* navigation bar */
+        nav{
+            display: flex;
+            
+            background-color: #333333;
+        }
+
+        nav a{
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        nav a:hover{
+            background-color: #dddddd;
+            color: black;
+        }
+
+        #container{
+            /* 양옆으로 배치됨 */
+            display: flex;
+            flex-wrap : wrap
+        }
+
+        /* 왼쪽 사이드 */
+        aside{
+            flex-grow: 3;
+            background-color: #f1f1f1;
+            padding: 20px;
+
+        }
+
+        article{
+            flex: 7;
+            background-color: white;
+            padding: 20px;
+        }
+
+        .fakeimg{
+            background-color: #aaaaaa;
+            width: 100%;
+            padding:20px
+        }
+
+        footer{
+            padding: 20px;
+            text-align: center;
+            background: grey;
+        }
+
+        /* 반응형웹 만들기 */
+        @media all and (max-width: 600px){
+            #container, nav{
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- notice -->
+    <div style="background-color: sandybrown; padding: 5px;">
+        <h4 style="text-align: center;">notice region</h4>
+    </div>
+
+    <!-- header영역 -->
+    <header> 
+        <h1>My website</h1>
+        <p>with a <strong>flexible</strong> layout</em></p>
+    </header>
+
+    <!-- navigation bar -->
+    <nav>
+            <a href="#">Link</a>
+            <a href="#">Link</a>
+            <a href="#">Link</a>
+            <a href="#">Link</a>
+            <a href="#">Link</a>
+    </nav>
+
+    <!-- 콘텐츠 영역 -->
+    <div id="container">
+        <!-- 왼쪽 사이드  -->
+        <aside>
+            <h2>About me</h2>
+            <h5>Photo of me</h5>
+            <div class="fakeimg" style="height: 200px;">Image</div>
+            <p>Some text aboue me</p>
+            <h3>More text</h3>
+            <p>This is a text region</p>
+            <div class="fakeimg" style="height: 60px;">Image</div><br>
+            <div class="fakeimg" style="height: 60px;">Image</div><br>
+            <div class="fakeimg" style="height: 60px;">Image</div><br>
+
+        </aside>
+        <!-- 본문영역 -->
+        <article>
+            <h2>TITLE HEADING</h2>
+            <h5>title description, Dec,7, 2019</h5>
+            <div class="fakeimg" style="height: 200px;">image</div>
+            <p>Some Text...</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                 Veritatis quos necessitatibus corrupti reprehenderit 
+                 velit cumque enim quod aperiam blanditiis possimus.
+                  Inventore tenetur ea deleniti! Sunt asperiores harum 
+                  tempora fugit molestias?</p>
+
+                  <h2>TITLE HEADING</h2>
+            <h5>title description, Dec,7, 2019</h5>
+            <div class="fakeimg" style="height: 200px;">image</div>
+            <p>Some Text...</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                 Veritatis quos necessitatibus corrupti reprehenderit 
+                 velit cumque enim quod aperiam blanditiis possimus.
+                  Inventore tenetur ea deleniti! Sunt asperiores harum 
+                  tempora fugit molestias?</p>
+
+
+        </article>
+
+    </div>
+  
+
+    <footer>
+            <h2>Footer</h2>
+
+        </footer>
+</body>
+</html>

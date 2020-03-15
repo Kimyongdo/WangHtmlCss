@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+    <title>03EX</title>
+    </head>
+    <body>
+        <!-- 순서 없음 -->
+        <ul>
+            <li>aaaa</li>
+            <li>bbbb</li>
+            <li>cccc</li>
+        </ul>
+        
+        <!-- 순서있음 -->
+        <ol>
+            <li>aaaa</li>
+            <li>bbbb</li>
+            <li>cccc</li>
+
+        </ol>
+
+        <dl>
+            <dt>aaa</dt>
+            <dd>이것은 Definition Data</dd>
+
+            <dt>bbb</dt>
+            <dd>이것은 Definition Data</dd>
+
+            <dt>ccc</dt>
+            <dd>이것은 Definition Data</dd>
+        </dl>
+
+        <!-- 수평선 그리기 -->
+        <hr>
+
+        <!-- <a>요소 : 하이퍼링커 요소 -->
+            <!-- a heft="" 아무런 내용이 없다면 자기자신 페이지 -->
+            <a>아무것도</a><br>
+            <a href="http://www.naver.com">네이버</a><br>
+            <!-- 폴더내의 html 로 이동가능  -->
+            <!-- _blank  -->
+            <a href="02_text.html" target="_blank">상대주소 : 같은 폴더의 다른 문서로 이동 </a>
+            <br>
+            <a href="../admin.html">상대주소 : 다른폴더의 문서로 이동  </a>
+        </body>
+        <br>
+        <!-- 같은 폴더 내 #을 쓰면 거기 아이디로 이동한다  -->
+        <a href="#help">도움말 위치로 이동 </a>
+        <br>
+        <br>
+        <!-- #과 id를 이용 -->
+        <p id="help">도움말</p>
+
+        <!-- 위처럼 <br>대신 <p>요소 안에 <a>요소 삽입, 마진이 자동생성-->
+        <p><a href="">aaa</a></p>
+        <p><a href="">bbb</a></p>
+
+        <!-- 리스트요소와 함께 사용 -->
+        <ul>
+            <li><a href="">1111</a></li>
+            <li><a href="">2222</a></li>
+            <li><a href="">3333</a></li>
+        </ul>
+
+        <!-- 이메일링크 -->
+        <!-- mailto는 이메일 열린다 -->
+        <p><a href="mailto:96kite@hanmail.net">96kite@hanmail.net</a></p>
+
+        <!-- 이미지보기  -->
+        <p><a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk6gIfIdP2ZxmCN1QiipPX6IiSbwdl21G0n9-RCv8hY6qnqBM4&s">이미지보기</a></p>
+        <p><a href="./cappuccino.jpg">이미지링크</a></p>
+        
+        <!-- 다운로드 링크 hwp zip 등 브라우저가 못 알아듣는건 다운로드-->
+    
+        <p><a href="./프로젝트.hwp">한글문서 다운로드</a></p>
+
+        <hr>
+        <!-- image요소 [인라인요소] -->
+        <!-- 바로 이미지가 보임, 상대주소 사용 -->
+        <img src="./cappuccino.jpg">
+        <!-- 절대주소 사용 width height border는 모두 css에서 제어-->
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk6gIfIdP2ZxmCN1QiipPX6IiSbwdl21G0n9-RCv8hY6qnqBM4&s" width="100" height="200" border="2">
+        <!-- 부모사이즈(웹페이지) 기준으로 30% 맞추겠다 -->
+        <img src="./cappuccino.jpg" width="30%">
+        <!-- aaa.jpg가 없다면 alt가 나옴 -->
+        <img src="aaa.jpg" alt="aaa이미지파손">
+
+</html>

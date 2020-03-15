@@ -1,0 +1,78 @@
+*{margin: 0; padding: 0;}
+ul{list-style: none;}
+a{text-decoration: none;}
+
+header{
+    /* 핸드폰 해상도가 너무 많아서 100% */
+    width: 100%;
+    background-color: #2d3a4b;
+    position: relative;
+
+}
+
+#logo{
+    /* absoulte로 사용해도 되는것을 이렇게 해도 됨.  */
+    padding-top: 30px;
+    padding-left: 30px ;
+}
+
+#top_menu{
+    position: absolute;
+    right: 10px;
+    top: 20px;
+
+}
+
+#top_menu a{color: white; font-size: 14px;}
+
+nav{
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    margin-top: 10px;
+}
+
+nav li{
+    line-height: 3em;
+    border-bottom: 1px solid #223344;
+}
+
+nav li a{
+    color: white;
+    /* a요소가 이미 인라인요소 block을 써야 전체로 만들기 가능 */
+    display: block;
+    text-align: center;
+}
+
+nav li a:hover{
+    background-color: white;
+    color: black;
+}
+
+#content #main img{
+    /* 화면 사이즈에 맞춘다. */
+    width: 100%;
+    border: 1px solid gray;
+}
+
+#content #banner li{
+    border-bottom: 1px solid gray;
+}
+
+#content #banner li a{
+    /* 앵커요소이미지 가운대로  */
+    display: block;
+    text-align: center;
+}
+
+footer{
+    padding: 0 10px;
+
+}
+
+footer img{
+    width: 100%;
+}
+
+
+
+

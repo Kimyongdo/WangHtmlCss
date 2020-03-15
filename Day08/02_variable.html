@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+<script>
+//자료형의 종류 
+//1. 수치형 : number : 정수 실수가 같다고 바라본다. //Number와는 다른 자료형
+//2. 문자형 : String -한문자, 문자열, '',""  (같다고 본다)
+//3. 논리형 : boolen = true, false
+//4. 객체형 : object, 내장(자바스크립트에 원래 있는 함수), 함수, new 
+//5. undefined : 값이 없는 변수의 자료형
+//변수를 선언하는 문법
+
+var a;
+a=10;
+document.write(a);
+document.write('<br>');
+
+//자료형의 구분이 없음
+var b = 'aaa';
+document.write(b);
+document.write('<br>');
+
+var c = true;
+document.write(c)
+document.write('<br>');
+
+//여기까지는 기본자료형들
+var d = new Date();
+document.write(d);
+document.write('<br>');
+
+//아무것도 안 넣으면 undefined가 나옴
+var e;
+document.write(e)
+document.write('<br>');
+
+document.write('<hr>');
+//변수의 자료형을 확인해주는 함수
+document.write(typeof(a)+"<br>");
+document.write(typeof(b)+"<br>");
+document.write(typeof(c)+"<br>");
+document.write(typeof(d)+"<br>");
+document.write(typeof(e)+"<br>");
+
+//아래 값은 당연히 string임
+var f ="1";
+document.write(typeof(f)+"<br>");
+
+document.write('<hr>');
+
+//변수는 값이 대입될때 자료형이 동적으로 결정됨
+//가지고 있는 자료형의 type()이 변경되는것도 가능함
+//number--->string이 가능
+var g = 10;
+document.write(g);
+document.write('<br>');
+g="kim"
+document.write(g)
+//심지어 함수도 변수에 참조가능
+var h = function(){
+    document.write('hhh 출력')
+}
+document.write('<br>');
+document.write(h) //함수 안 내용이 그대로 출력
+//함수를 참조하는 변수명을 통해 함수 호출 가능
+document.write('<br>');
+h(); //함수가 가지고 있는 내용이 출력 
+
+//함수의 자료형은?
+document.write('<br>');
+document.write(typeof(h)); // function이 출력 
+document.write('<br>');
+
+//문자열은 참조형이 맞음(객체형)
+var s="Hello"
+document.write(s.length) //멤버를 가지고 있음. 
+document.write('<br>');
+
+//자바와 비슷하게 문자열의 기능메소들이 존재함
+document.write(s.charAt(0))
+document.write('<br>');
+document.write(s.replace('H','K'))
+document.write(s.replace('l','p')) //자바와 달리 글자 l에 해당 하나만 바뀜
+document.write('<br>');
+document.write(s.toUpperCase())
+document.write('<br>');
+
+//사용자 정의 객체
+//클래스 객체만들기!!
+//자바스크팁는 class라는 문법이 없음(ECMA5버전부터 CLASS라는 문법이 생김.. 추후소개)
+var person = {name:'sam', age:20}; //이게 멤버변수 만드는 형태, Json과 비슷
+document.write('<p>');
+document.write('name:'+person.age);
+document.write('</p>');
+
+//변수 사용시 특이항 상황
+
+
+
+
+
+
+
+
+</script>
+
+</head>
+
+
+<body>
+    
+</body>
+</html>

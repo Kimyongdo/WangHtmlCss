@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+</head>
+
+
+<!--  text박스를 누르면 그때 keypress가 반응함.  -->
+<body onkeypress="keypress()">
+
+    아무키나 누르세요.<br>
+    char <input type="text" id="keychar"><br>
+    char <input type="text" id="keycode"><br>
+    shift키 <input type="checkbox" id="shiftkey">
+
+
+
+    <script>
+
+        //키보드 이벤트의 종류 keypress(), keydown(), keyup()
+        //keypress()는 방향키를 인식하지 못함, 대소문자 구별
+        //keydown(), keyup()은 방향키 인식, 대소문자 구별 불가. 
+        function keypress(){
+            //원래부터 존재하는 내장객체
+            var keycode = event.keyCode;
+            document.getElementById('keychar').value = String.fromCharCode(keycode);
+            document.getElementById('keycode').value = keycode;
+            document.getElementById('shiftkey').checked = event.shiftKey;
+        }
+    </script>
+    
+
+    <hr>
+
+    <!-- 참고. 별외 -->
+    <!-- html요소에 속성을 이벤트리 처리하기 위해 함수를 전달하는 것과 -->
+    <!-- addEventListenr로 이벤트를 처리할 때 콜백함수 지정하는 것이 차이가 있음. this키워드의 차이-->
+        <!-- onkeyup은 누르고 땔 때 발동됨.  -->
+    <input type="text" onkeyup="aaa()"> 
+    <script>
+
+        function aaa(){
+            alert(this);//this는 이벤트발생요소가 아니라 윈도우 내장객체  
+            //object Widnow가 뜸. 
+            //id도 없고 태그로 찾기도 힘들어서 이벤트를 쓰려면 
+        }
+    </script>
+
+     <hr>
+     <input type="text" id='in1'>
+     <script>
+         var kkk  = function(){
+             alert(this); //this는 이벤트를 발생한 요소를 지칭함!!  
+             this.value = this.value.toUpperCase(); //이 자체가 input요소이기에 제어가 쉬움
+         }
+         document.getElementById('in1').addEventListener('keyup', kkk) 
+         //HTML의 input요소가 뜸. 
+     </script>
+</body>
+</html>

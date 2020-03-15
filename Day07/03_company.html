@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <!-- 1. 반응형 웹 만들기 -->
+    <!-- 1. 모바일용 css -->
+    <!-- max=600, 최대면 600. -->
+    <link rel="stylesheet" href="./03_companyMobile.css" media="(max-width:600px">
+    <!-- 2. 데스크탑용  -->
+    <link rel="stylesheet" href="./03_company.css" media="(min-width:600px)">
+
+</head>
+
+<body>
+    <div id="page">
+
+    <header>
+        <div id="logo">
+            <img src="./imgs_company/logo.png" alt="logo">
+        </div>
+
+        <div id="top_menu">
+            <!-- 빈칸을 나눨때는 #으로 둔다.  -->
+            <!-- |을 사용. -->
+            <!-- a href는 인라인요소 -->
+            <a href="#">HOME</a> |
+            <a href="#">NOTICE</a> |
+            <a href="#">LOGIN</a> |
+            <a href="#">JOIN</a> 
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="#">COMPANY</a></li>
+                <li><a href="#">PRODUCT</a></li>
+                <li><a href="#">CUSTOMER</a></li>
+                <li><a href="#">SERVICE</a></li>
+                <li><a href="#">RECUIT</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <article id="content">
+        <section id="main">
+            <img src="./imgs_company/main_img.png" alt="main">
+        </section>
+
+        <section>
+            <ul id="banner">
+                <li><a href=""><img src="./imgs_company/banner1.png" alt=""></a></li>
+                <li><a href=""><img src="./imgs_company/banner2.png" alt=""></a></li>
+            </ul>
+        </section>
+    </article>
+
+    <footer>
+        <img src="./imgs_company/address.png" alt="">
+    </footer>
+    </div>
+</body>
+</html>

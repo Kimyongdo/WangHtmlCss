@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <!-- 실제 모바일에서 구동해보면..view port문제로 인해 글씨가 너무 작게 보임 -->
+    <!-- why? 모바일의 웹브라우저는 viewport가 무조건 980으로 고정되어있음. 
+         실제 디바이스의 viewport와 상관없이 크기가 결정-->
+
+    <!-- viewport[웹브라우저의 document영역의 가상의 사각형영역]는 해상도와는 
+        다름 Nexus 5x의 해상도는 가로는 1080*1920이지만 viewport는 412*712임 
+        기종마다 해상도가 다르다. 
+    -->
+    <!-- 넥서스 5x의 뷰포트 412에서 200px인 img의 width가 모바일웹브라우저에서는 기본 뷰포트 크기인 980에서는
+        대략 2배정도 작아진 100px정보의 크기로 보임. 
+    -->
+    <!-- 디바이스의 실제 뷰포트로 변경해주는 작업이 필요 -->
+
+    <!-- <meta name="viewport" content="width=412, initial-scale=1.0"> -->
+    <!-- device-width는 기종마다 최적화  -->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+</head>
+<body>
+    <!-- f12 -모바일용버튼 클릭하면 모바일용 파악가능 -->
+    <h2>view port test</h2>
+    <p>this is viewport test</p>
+    <img src="./panda.png" alt="" style="width:200px">
+
+</body>
+</html>

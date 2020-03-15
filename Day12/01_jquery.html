@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jquery</title>
+    
+    <!-- Jquery Library추가 : www.jquery.com -->
+    <!-- 1. 파일다운로드 형식(빠르지만 업데이트가 안됨)하이브리드웹에서는 권장 -->
+    <!-- https://jquery.com/download/ 에서
+    다음이름으로 링크저장. 이 파일 끝에 .js를 붙이고 옮긴다.
+    -->
+    <script src="./jquery-3.4.1.min.js"></script>
+    
+    <!-- 2. CDM(Content Delivery Network) 방식  웹을 만들때는 권장 -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!-- https://code.jquery.com/에서 minified,을 새창으로 열기 - 이 주소를 복사해서 가져오기 -->
+    <!-- 만일 문제가 생긴다면 Google CDN -> https://developers.google.com/speed/libraries#jquery
+    -> <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 가져온다.
+    -->
+
+    <!-- 2. 대처방안 -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+
+    <script>
+    
+        //jquery : HTML요소를 찾을때 CSS선택자를 이용해서 쉽게 선택할 수 있음.
+        //문법 : jQuery('css선택자' or 객체).xxx()
+        //$('css선택자' or 객체).xxx() //jQquery길어서 $로 약어로 만듦
+        //body요소가 load되었을 때 이벤트 처리
+        $(document).ready(function(){ //body가 나오면 ready 내용 함수가 나오도록.
+            //alert('aa') //\ //=document.getElementbyId('#btn')과 같음. 
+            jQuery('#btn').click(function(){ //$==jQuery
+                alert('clicked');
+                $(this).hide();//thisㄴ hide이름의 버튼을 의미.
+            });
+            
+            //JS의 addEventListner()와 같은 역할
+            //1.bind()
+            $('#btn1').bind('click', function(){
+                $('#p1').hide();
+            });
+
+            //2.click()
+            $('#btn2').click(function(){
+                $('#p1').show();
+            });
+
+            //3. on() : 권장사항 
+            // btn3을 가져오고 addEventListner인 on을 쓰고 'click' 이건 정해진 이름. click 기능 function
+
+                $('#btn3').on('click',function(){ //click은 정해진 이름 #은 css문법 아이디를 가져올 때
+                   //    $('#p1').toggle();
+                    $('p').toggle(); //#이 없는 타입선택자는 여러개일 수 있음. 여러개가 동시에 적용 
+                    //$('p')[0].toggle; //이렇게 하면 에러. 왜? [0]때문에 jquery가 아니게 됨. 
+                    $($('p')[0]).toggle; // $ (  )이 형식 안에 있어야 jquery가 안됨.
+
+                    
+                    //참고
+                    //jquery변수를 일반 JS변수에 대입하면 일반변수도 jquery처럼 사용 가능
+                    var a = $('p');
+                    a.toggle;
+
+                    //일반구별이 잘 안가서 일반 변수명에 $를 추가시킴. 
+                    var $a = $('p');
+                    $a.toggle;
+                });
+        }); 
+    </script>
+
+    <!-- 마우스 이벤트 연습을 위한 스타일 -->
+    <style>
+        div.m{
+            width: 200px;
+            height: 80px;
+            background-color: sandybrown;
+        }
+
+        div.m2{
+            width: 300px;
+            height: 400px;
+            background-color: seagreen;
+        }
+    </style>
+
+    <script>
+        //body영역 호출 후 이 메소드를 자동실행 
+        $(document).ready(function(){
+            $('.m').mouseover(function(){
+                $('div.m p:first').text('mouse over');
+            });
+
+            var cnt=0;
+            $('.m').on('mouseleave',function(){
+                cnt++;
+                $('div.m p:last').text('mouse leave'+cnt);
+            });
+
+            //여러개의 이벤트를 한번에 처리하기(객체로 만들어서);
+            var callbacks ={
+                mousedown:function(){
+                    //div의 m2가 this
+                    //눌렀을 때 this에 문자가(html) 들어간다. 
+                    $(this).html("down : "+event.buttons+'<br>');
+                    $(this).append('client or page : '+event.clientX+","+event.clientY+"<br>");
+                    $(this).append('screen : '+event.screenX+","+event.screenY+"<br>");
+                    $(this).append('offset : '+event.offsetX+","+event.offsetY+"<br>");
+                
+                },
+
+                mousemove:function(){
+                    //마우스를 움직일때
+                    $(this).html("down : "+event.buttons+'<br>');
+                    $(this).append('client or page : '+event.clientX+","+event.clientY+"<br>");
+                    $(this).append('screen : '+event.screenX+","+event.screenY+"<br>");
+                    $(this).append('offset : '+event.offsetX+","+event.offsetY+"<br>");
+                },
+
+                
+                mouseup:function(){
+                    $(this).html("down : "+event.buttons+'<br>');
+                    $(this).append('client or page : '+event.clientX+","+event.clientY+"<br>");
+                    $(this).append('screen : '+event.screenX+","+event.screenY+"<br>");
+                    $(this).append('offset : '+event.offsetX+","+event.offsetY+"<br>");
+                },
+
+                mousewheel: function(){
+                        $(this).append( event.wheelDelta+"<br>");//올리면 120, 내리면 -120
+                    }
+          
+                
+        
+            };
+
+            $('div.m2').on(callbacks)
+            //한번에 처리하는 또 다른 방식.. 이 방식을 더 많이 사용
+            $('div.m2').on('mousedown  mousemove mouseup',function(){
+                $(this).append(event.type+'<br>')
+            })
+
+            //on메소드는 간소화 및 브라우져 호환성을 위해서 권장됨. 
+            //mousewheel은 firefox브라우져에서는 인식안됨
+            $('div.m2').on('mousewheel DOMMouseScroll', function(){
+                //DOMMouseScroll은 firefox브라우져의 휠이벤트임
+                if(e.detail) $(this).append("변화 : "+e.detail+"<br>");
+                else $(this).append('변화 : '+e.wheelDelta+"<br>");
+            });
+        });
+    </script>
+
+
+    <script>
+        //포커스 이벤트 처리
+        $(document).ready(function(){
+            //input요소의 focus이벤트 처리하기
+            //input요소가 focus되었을 경우
+            $('input').focus(function(){
+                //자기 자신(input을)
+                $(this).css('background-color','yellow');
+            });
+
+            $('input').on('blur',function(){
+                //자기 자신(input을)
+                $(this).css('background-color','');
+            });
+
+
+        });
+    </script>
+
+</head>
+<body>
+    <button id="btn">button</button>
+
+    <hr>
+
+    <h3>클릭이벤트 처리 3가지 방법</h3>
+    <button id="btn1">hide</button>
+    <button id="btn2">show</button>
+    <button id="btn3">toggle</button>
+    <p id="p1">이 요소를 제어합니다.</p>
+
+    <hr>
+
+    <h3>마우스 요소</h3>
+    <div class="m">
+        <p></p><!-- 마우스 over 정보 -->
+        <p></p><!-- 마우스 leave 정보 -->
+
+    </div>
+
+    <!-- 멀티이벤트 처리 -->
+    <div class="m2">
+    </div>
+
+    <hr>
+    <h3>포커스 이벤트 처리</h3>
+    <label> name: <input type="text" name=""></label>
+</body>
+</html>
